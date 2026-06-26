@@ -1,0 +1,621 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SunVolt Energy - Premium Portable Power Stations & Solar Energy Storage</title>
+<meta name="description" content="Factory-direct B2B portable power stations and solar generators for Africa and Middle East. ISO-certified. MOQ from 10 units.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'><rect width='36' height='36' rx='8' fill='%23C9A84C'/><text x='18' y='26' text-anchor='middle' font-size='22' font-weight='800' fill='%230F2140'>S</text></svg>">
+<style>/* ===== SUNVOLT ENERGY - PREMIUM STYLESHEET ===== */
+:root {
+  --primary: #0F2140;
+  --primary-light: #1B3360;
+  --navy-light: #1D3A6A;
+  --accent: #C9A84C;
+  --accent-hover: #B8973A;
+  --accent-light: rgba(201,168,76,0.1);
+  --light: #F3F4F6;
+  --bg: #F8F7F4;
+  --bg-white: #FFFFFF;
+  --text: #1A1A1A;
+  --text-light: #6B7280;
+  --text-muted: #9CA3AF;
+  --border: #E5E7EB;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 20px rgba(15,33,64,0.08);
+  --shadow-lg: 0 12px 40px rgba(15,33,64,0.12);
+  --shadow-xl: 0 20px 60px rgba(15,33,64,0.16);
+  --radius: 8px;
+  --radius-lg: 16px;
+  --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Inter',-apple-system,sans-serif; color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased; background:var(--bg-white); }
+img { max-width:100%; height:auto; }
+::selection { background:var(--accent); color:var(--primary); }
+
+.container { max-width:1200px; margin:0 auto; padding:0 24px; }
+
+/* ===== LOADER ===== */
+#loader { position:fixed; inset:0; z-index:9999; background:var(--primary); display:flex; align-items:center; justify-content:center; transition:opacity 0.5s; }
+#loader.done { opacity:0; pointer-events:none; }
+.loader-spinner { width:40px; height:40px; border:3px solid rgba(255,255,255,0.1); border-top-color:var(--accent); border-radius:50%; animation:spin 0.8s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+
+/* ===== HEADER ===== */
+.header { position:fixed; top:0; width:100%; z-index:1000; padding:16px 0; transition:var(--transition); }
+.header.scrolled { background:rgba(255,255,255,0.97); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); padding:10px 0; box-shadow:0 1px 30px rgba(0,0,0,0.06); }
+.header-inner { display:flex; justify-content:space-between; align-items:center; }
+.logo { display:flex; align-items:center; text-decoration:none; gap:8px; }
+.logo:hover { opacity:0.85; }
+.logo-text { font-size:17px; font-weight:700; color:var(--primary); letter-spacing:-0.3px; }
+.logo-text span { color:var(--accent); }
+.logo-sub { font-size:9px; text-transform:uppercase; letter-spacing:2px; color:var(--text-muted); margin-top:-1px; }
+
+.nav { display:flex; gap:24px; align-items:center; }
+.nav a { color:var(--text); text-decoration:none; font-size:13px; font-weight:500; transition:var(--transition); position:relative; padding:4px 0; }
+.nav a::after { content:""; position:absolute; bottom:0; left:0; width:0; height:2px; background:var(--accent); transition:var(--transition); }
+.nav a:hover, .nav a.active { color:var(--accent); }
+.nav a:hover::after, .nav a.active::after { width:100%; }
+.nav-cta, .btn-nav { background:var(--accent); color:var(--primary) !important; padding:8px 22px !important; border-radius:50px; font-weight:600; font-size:12px !important; }
+.nav-cta:hover, .btn-nav:hover { background:var(--accent-hover) !important; color:var(--primary) !important; }
+.nav-cta::after, .btn-nav::after { display:none !important; }
+.mobile-toggle { display:none; background:none; border:none; font-size:24px; color:var(--primary); cursor:pointer; padding:8px; }
+
+/* ===== HERO ===== */
+.hero { padding:160px 0 100px; background:linear-gradient(135deg,#0a1628 0%,var(--primary) 40%,var(--primary-light) 70%,#1D3A6A 100%); position:relative; overflow:hidden; }
+.hero-bg { position:absolute; inset:0; }
+.hero-bg::before { content:""; position:absolute; top:-50%; right:-20%; width:800px; height:800px; background:radial-gradient(circle,rgba(201,168,76,0.06) 0%,transparent 70%); }
+.hero-bg::after { content:""; position:absolute; bottom:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent); }
+.hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; position:relative; z-index:1; }
+.hero-tag { display:inline-flex; align-items:center; gap:6px; background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.15); color:var(--accent); font-size:12px; font-weight:600; padding:6px 16px; border-radius:50px; margin-bottom:20px; }
+.hero h1 { font-size:52px; font-weight:800; line-height:1.05; color:#fff; margin-bottom:16px; letter-spacing:-1.5px; }
+.text-gradient { background:linear-gradient(135deg,var(--accent),#E0C060,#C9A84C); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.hero p { font-size:16px; color:rgba(255,255,255,0.5); margin-bottom:32px; max-width:480px; line-height:1.7; }
+.hero-actions { display:flex; gap:12px; flex-wrap:wrap; }
+
+.btn { display:inline-flex; align-items:center; gap:8px; padding:14px 32px; border-radius:50px; font-size:13px; font-weight:600; text-decoration:none; transition:var(--transition); cursor:pointer; border:none; letter-spacing:0.3px; }
+.btn-primary { background:var(--accent); color:var(--primary); }
+.btn-primary:hover { background:var(--accent-hover); transform:translateY(-2px); box-shadow:0 8px 25px rgba(201,168,76,0.3); }
+.btn-ghost { background:transparent; border:2px solid rgba(255,255,255,0.15); color:#fff; }
+.btn-ghost:hover { border-color:var(--accent); background:rgba(201,168,76,0.1); transform:translateY(-2px); }
+
+.hero-stats { display:flex; gap:40px; margin-top:48px; padding-top:32px; border-top:1px solid rgba(255,255,255,0.06); }
+.hs-num { font-size:28px; font-weight:800; color:var(--accent); letter-spacing:-0.5px; }
+.hs-lbl { font-size:12px; color:rgba(255,255,255,0.35); margin-top:2px; }
+
+.hero-visual { display:flex; align-items:center; justify-content:center; }
+.hv-device { width:300px; height:300px; position:relative; display:flex; align-items:center; justify-content:center; }
+.hv-inner { width:160px; height:160px; background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.04)); border-radius:50%; display:flex; align-items:center; justify-content:center; position:relative; z-index:2; backdrop-filter:blur(10px); border:1px solid rgba(201,168,76,0.15); }
+.hv-bolt { font-size:60px; }
+.hv-ring { position:absolute; inset:0; border-radius:50%; border:1px solid rgba(201,168,76,0.1); animation:hr-1 3s ease-in-out infinite; }
+.hv-ring-2 { position:absolute; inset:-20px; border-radius:50%; border:1px solid rgba(201,168,76,0.05); animation:hr-2 4s ease-in-out infinite; }
+@keyframes hr-1 { 0%,100% { transform:scale(1); opacity:0.5; } 50% { transform:scale(1.05); opacity:1; } }
+@keyframes hr-2 { 0%,100% { transform:scale(1); opacity:0.3; } 50% { transform:scale(1.08); opacity:0.8; } }
+
+/* ===== TRUST BAR ===== */
+.trust-bar { background:var(--bg); padding:20px 0; border-bottom:1px solid var(--border); }
+.trust-inner { display:flex; justify-content:center; gap:32px; flex-wrap:wrap; }
+.trust-item { font-size:12px; color:var(--text-light); font-weight:500; white-space:nowrap; }
+
+/* ===== SECTIONS ===== */
+.section { padding:100px 0; }
+.s-dark { background:var(--bg); }
+.sh { text-align:center; margin-bottom:48px; }
+.st { display:inline-block; background:var(--accent-light); color:var(--accent); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; padding:4px 14px; border-radius:20px; margin-bottom:10px; }
+.sh h2 { font-size:32px; font-weight:700; color:var(--primary); margin-bottom:8px; letter-spacing:-0.5px; }
+.sh p { color:var(--text-light); max-width:500px; margin:0 auto; font-size:14px; }
+
+/* ===== GRIDS ===== */
+.g-2 { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.g-3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px; }
+.g-4 { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px; }
+
+/* ===== FEATURE CARDS ===== */
+.fc { background:var(--bg-white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:36px 28px; transition:var(--transition); }
+.fc:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
+.fc-icon { width:48px; height:48px; background:var(--accent-light); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; margin-bottom:16px; }
+.fc h3 { font-size:16px; font-weight:600; color:var(--primary); margin-bottom:6px; }
+.fc p { font-size:13px; color:var(--text-light); margin:0; line-height:1.6; }
+
+/* ===== PRODUCT CARDS ===== */
+.pc { background:var(--bg-white); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; transition:var(--transition); }
+.pc:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+.pc-visual { height:200px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+.pc-v1 { background:linear-gradient(135deg,#1a2744,#2a3f6a); }
+.pc-v2 { background:linear-gradient(135deg,#16203a,#243558); }
+.pc-v3 { background:linear-gradient(135deg,#0f1a30,#1a2d50); }
+.pc-icon { font-size:48px; }
+.pc-badge { position:absolute; top:12px; left:12px; background:var(--accent); color:var(--primary); font-size:10px; font-weight:700; padding:3px 10px; border-radius:4px; }
+.pc-body { padding:24px; }
+.pc-body h3 { font-size:18px; font-weight:700; color:var(--primary); }
+.pc-sub { font-size:13px; color:var(--text-light); margin-bottom:12px; }
+.pc-specs { list-style:none; font-size:13px; color:var(--text-light); line-height:1.8; margin-bottom:16px; }
+.pc-specs li::before { content:"\2713"; color:var(--accent); font-weight:bold; margin-right:8px; }
+.pc-price { font-size:24px; font-weight:800; color:var(--primary); margin-bottom:16px; }
+.pc-price small { font-size:11px; font-weight:400; color:var(--text-muted); display:block; }
+
+/* ===== ABOUT ===== */
+.al { list-style:none; margin-bottom:20px; }
+.al li { padding:5px 0; font-size:14px; color:var(--text); }
+.al li::before { content:"\2713"; color:var(--accent); font-weight:bold; margin-right:10px; }
+.about-visual { background:var(--bg); border-radius:var(--radius-lg); padding:48px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+.av-content h3 { color:var(--primary); margin:12px 0 4px; }
+.av-content p { color:var(--text-light); font-size:13px; }
+
+/* ===== PAGE HERO ===== */
+.page-hero { padding:140px 0 80px; background:linear-gradient(135deg,#0a1628 0%,var(--primary) 50%,var(--navy-light) 100%); position:relative; overflow:hidden; }
+.page-hero::before { content:""; position:absolute; top:-40%; right:-10%; width:600px; height:600px; background:radial-gradient(circle,rgba(201,168,76,0.05) 0%,transparent 70%); }
+.page-hero h1 { color:#fff; font-size:38px; font-weight:800; letter-spacing:-1px; margin-bottom:12px; position:relative; z-index:1; }
+.page-hero p { color:rgba(255,255,255,0.45); font-size:15px; max-width:560px; position:relative; z-index:1; }
+
+/* ===== SECTION TITLE COMPONENT ===== */
+.section-title { text-align:center; margin-bottom:48px; }
+.section-tag { display:inline-block; background:var(--accent-light); color:var(--accent); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; padding:4px 14px; border-radius:20px; margin-bottom:10px; }
+.section-title h2 { font-size:30px; font-weight:700; color:var(--primary); letter-spacing:-0.5px; }
+
+/* ===== PRODUCT DETAIL GRID ===== */
+.products-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:28px; }
+.product-card { background:var(--bg-white); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; transition:var(--transition); }
+.product-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+.product-img { height:220px; background:linear-gradient(135deg,var(--primary),var(--primary-light)); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+.product-img svg { width:140px; height:140px; filter:drop-shadow(0 8px 30px rgba(0,0,0,0.3)); }
+.product-body { padding:24px; }
+.product-body h3 { font-size:16px; font-weight:700; color:var(--primary); margin-bottom:6px; }
+.tag { display:inline-block; background:var(--accent-light); color:var(--accent); font-size:10px; font-weight:700; padding:2px 10px; border-radius:4px; margin-bottom:10px; }
+.specs { font-size:13px; color:var(--text-light); line-height:1.9; margin-bottom:16px; }
+.specs b { color:var(--text); }
+.price-row { display:flex; flex-direction:column; gap:4px; }
+.price { font-size:22px; font-weight:800; color:var(--primary); }
+.price small { font-size:11px; font-weight:400; color:var(--text-muted); display:block; }
+
+/* ===== WHY GRID ===== */
+.why-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
+.why-card { background:var(--bg-white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:32px 28px; transition:var(--transition); position:relative; overflow:hidden; }
+.why-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
+.why-card .num { font-size:36px; font-weight:900; color:rgba(15,33,64,0.04); position:absolute; top:12px; right:16px; line-height:1; }
+.why-card h3 { font-size:16px; font-weight:600; color:var(--primary); margin-bottom:6px; position:relative; }
+.why-card p { font-size:13px; color:var(--text-light); line-height:1.7; position:relative; }
+
+/* ===== WHOLESALE STEPS ===== */
+.wholesale-steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+.step-card { background:var(--bg-white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:28px 24px; text-align:center; transition:var(--transition); }
+.step-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
+.step-num { width:44px; height:44px; background:var(--accent); color:var(--primary); font-size:18px; font-weight:800; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; }
+.step-card h3 { font-size:14px; font-weight:600; color:var(--primary); margin-bottom:6px; }
+.step-card p { font-size:12px; color:var(--text-light); line-height:1.7; }
+
+/* ===== ABOUT GRID ===== */
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+.about-grid h2 { font-size:24px; font-weight:700; color:var(--primary); margin-bottom:16px; }
+.about-grid p { font-size:14px; color:var(--text-light); line-height:1.8; margin-bottom:12px; }
+.about-image { background:var(--light); border-radius:var(--radius-lg); padding:60px 40px; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:300px; text-align:center; }
+.about-image .ai-icon { font-size:80px; margin-bottom:16px; }
+.about-image p { color:var(--text-light); font-size:13px; }
+.about-list { list-style:none; padding:0; }
+.about-list li { padding:6px 0; font-size:13px; color:var(--text); border-bottom:1px solid var(--border); display:flex; align-items:center; gap:8px; }
+.about-list li:last-child { border-bottom:none; }
+.about-list li::before { content:"\2713"; color:var(--accent); font-weight:bold; flex-shrink:0; }
+
+/* ===== FEATURES GRID ===== */
+.features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; }
+.feature-card { background:var(--bg-white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:28px; text-align:center; transition:var(--transition); }
+.feature-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
+.feature-card .icon { font-size:36px; display:block; margin-bottom:12px; }
+.feature-card h3 { font-size:15px; font-weight:600; color:var(--primary); margin-bottom:6px; }
+.feature-card p { font-size:12px; color:var(--text-light); line-height:1.7; }
+
+/* ===== CONTACT PAGE ===== */
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+.contact-info h3 { font-size:20px; font-weight:700; color:var(--primary); margin-bottom:12px; }
+.contact-info > p { font-size:13px; color:var(--text-light); margin-bottom:28px; line-height:1.7; }
+.contact-method { display:flex; gap:16px; align-items:flex-start; margin-bottom:24px; padding:20px; background:var(--light); border-radius:var(--radius); transition:var(--transition); }
+.contact-method:hover { box-shadow:var(--shadow-sm); }
+.contact-method .icon { font-size:24px; width:48px; height:48px; background:var(--accent-light); border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.contact-method h4 { font-size:13px; font-weight:600; color:var(--primary); margin-bottom:4px; }
+.contact-method p { font-size:12px; color:var(--text-light); line-height:1.6; }
+
+/* ===== CTA SECTION ===== */
+.cta { padding:80px 0; background:var(--primary); text-align:center; }
+.cta h2 { color:#fff; font-size:34px; font-weight:700; margin-bottom:10px; }
+.cta p { color:rgba(255,255,255,0.4); max-width:450px; margin:0 auto 28px; font-size:15px; }
+.cta-section { padding:80px 0; background:var(--primary); text-align:center; }
+.cta-section h2 { color:#fff; font-size:34px; font-weight:700; margin-bottom:10px; }
+.cta-section p { color:rgba(255,255,255,0.4); max-width:450px; margin:0 auto 28px; font-size:15px; }
+
+/* ===== TESTIMONIALS ===== */
+.testimonials { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; }
+.testimonial-card { background:var(--bg-white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:28px; }
+.testimonial-card .stars { color:var(--accent); font-size:14px; margin-bottom:10px; }
+.testimonial-card blockquote { font-size:13px; color:var(--text-light); font-style:italic; line-height:1.7; margin-bottom:16px; }
+.testimonial-card .author { display:flex; align-items:center; gap:10px; }
+.testimonial-card .author-avatar { width:36px; height:36px; border-radius:50%; background:var(--accent-light); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; color:var(--accent); }
+.testimonial-card .author-info { font-size:12px; }
+.testimonial-card .author-name { font-weight:600; color:var(--primary); }
+.testimonial-card .author-title { color:var(--text-muted); font-size:11px; }
+
+/* ===== FAQ ===== */
+.faq-list { max-width:760px; margin:0 auto; }
+.faq-item { border:1px solid var(--border); border-radius:var(--radius); margin-bottom:8px; overflow:hidden; }
+.faq-q { padding:18px 20px; font-size:14px; font-weight:600; color:var(--primary); cursor:pointer; display:flex; justify-content:space-between; align-items:center; background:var(--bg-white); transition:var(--transition); user-select:none; }
+.faq-q:hover { background:var(--bg); }
+.faq-q .faq-arrow { font-size:12px; transition:var(--transition); color:var(--text-muted); }
+.faq-item.open .faq-q .faq-arrow { transform:rotate(180deg); }
+.faq-a { padding:0 20px; max-height:0; overflow:hidden; transition:max-height 0.3s ease, padding 0.3s ease; font-size:13px; color:var(--text-light); line-height:1.7; }
+.faq-item.open .faq-a { padding:0 20px 20px; max-height:300px; }
+
+/* ===== COMPARISON TABLE ===== */
+.compare-wrap { overflow-x:auto; margin-top:32px; }
+.compare-table { width:100%; border-collapse:collapse; font-size:13px; background:var(--bg-white); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm); }
+.compare-table thead { background:var(--primary); }
+.compare-table th { padding:16px 20px; text-align:center; color:#fff; font-weight:600; font-size:12px; letter-spacing:0.5px; }
+.compare-table th:first-child { text-align:left; }
+.compare-table td { padding:14px 20px; text-align:center; border-bottom:1px solid var(--border); color:var(--text); }
+.compare-table td:first-child { text-align:left; font-weight:500; }
+.compare-table .best { background:var(--accent-light); font-weight:600; color:var(--accent); }
+.compare-table tr:hover td { background:var(--light); }
+
+/* ===== SHIPPING SECTION ===== */
+.shipping-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+.shipping-card { background:var(--light); border-radius:var(--radius-lg); padding:28px; text-align:center; }
+.shipping-card .ship-icon { font-size:36px; margin-bottom:12px; }
+.shipping-card h4 { font-size:14px; font-weight:600; color:var(--primary); margin-bottom:4px; }
+.shipping-card p { font-size:12px; color:var(--text-light); }
+
+/* ===== COUNTER ROW ===== */
+.counter-row { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; text-align:center; }
+.counter-item .counter-num { font-size:36px; font-weight:800; color:var(--accent); }
+.counter-item .counter-label { font-size:12px; color:var(--text-light); margin-top:4px; }
+
+/* ===== LOGO FOOTER ===== */
+.logo-footer { font-size:17px; font-weight:700; color:#fff; text-decoration:none; display:block; margin-bottom:8px; }
+.logo-footer span { color:var(--accent); }
+
+/* ===== FOOTER ===== */
+.footer { background:#060E1C; padding:60px 0 30px; }
+.fg { display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr; gap:48px; margin-bottom:40px; }
+.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr; gap:48px; margin-bottom:40px; }
+.footer h4 { color:#fff; font-size:12px; font-weight:600; margin-bottom:12px; text-transform:uppercase; letter-spacing:1px; }
+.footer p, .footer a { font-size:13px; color:rgba(255,255,255,0.25); text-decoration:none; line-height:2.2; display:block; transition:var(--transition); }
+.footer a:hover { color:var(--accent); }
+.copy { border-top:1px solid rgba(255,255,255,0.04); padding-top:24px; text-align:center; font-size:12px; color:rgba(255,255,255,0.15); }
+
+/* ===== WHATSAPP FAB ===== */
+.wa-fab { position:fixed; bottom:24px; right:24px; z-index:999; width:56px; height:56px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; padding:14px; box-shadow:0 4px 20px rgba(37,211,102,0.35); transition:var(--transition); text-decoration:none; }
+.wa-fab:hover { transform:scale(1.1); box-shadow:0 8px 30px rgba(37,211,102,0.45); }
+.wa-fab svg { width:26px; height:26px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:992px) {
+  .hero-grid, .g-2, .about-grid, .contact-grid { grid-template-columns:1fr; gap:40px; }
+  .hero h1 { font-size:36px; }
+  .hero-stats { gap:24px; flex-wrap:wrap; }
+  .hero-visual, .hero-ill { order:-1; }
+  .fg, .footer-grid { grid-template-columns:1fr 1fr 1fr; gap:24px; }
+  .page-hero { padding:120px 0 60px; }
+  .page-hero h1 { font-size:30px; }
+  .counter-row { grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:768px) {
+  .nav { display:none; }
+  .mobile-toggle { display:block; }
+  .nav.open { display:flex; flex-direction:column; position:absolute; top:68px; left:0; right:0; background:rgba(255,255,255,0.98); backdrop-filter:blur(20px); padding:20px 24px; gap:12px; border-bottom:1px solid var(--border); }
+  .nav.open .btn-nav, .nav.open .nav-cta { background:var(--accent); color:var(--primary) !important; padding:10px 22px !important; display:inline-block; text-align:center; }
+  .hero, .page-hero { padding:120px 0 60px; }
+  .hero h1 { font-size:28px; }
+  .page-hero h1 { font-size:24px; }
+  .hs-num { font-size:22px; }
+  .section { padding:60px 0; }
+  .sh h2, .section-title h2 { font-size:24px; }
+  .trust-inner { gap:16px; }
+  .trust-item { font-size:11px; }
+  .g-3 { grid-template-columns:1fr; }
+  .products-grid { grid-template-columns:1fr; }
+  .why-grid { grid-template-columns:1fr; }
+  .wholesale-steps { grid-template-columns:1fr 1fr; }
+  .testimonials { grid-template-columns:1fr; }
+  .fg, .footer-grid { grid-template-columns:1fr; gap:24px; }
+  .cta h2, .cta-section h2 { font-size:26px; }
+  .about-grid { grid-template-columns:1fr; }
+  .contact-grid { grid-template-columns:1fr; }
+  .counter-row { grid-template-columns:repeat(2,1fr); }
+  .counter-item .counter-num { font-size:28px; }
+  .compare-table { font-size:12px; }
+  .compare-table th, .compare-table td { padding:10px 12px; }
+}
+@media (max-width:480px) {
+  .wholesale-steps { grid-template-columns:1fr; }
+  .counter-row { grid-template-columns:1fr 1fr; }
+}
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="loader"><div class="loader-spinner"></div></div>
+
+<header class="header" id="header">
+<div class="container header-inner">
+<a href="/" class="logo">
+<svg width="36" height="36" viewBox="0 0 36 36" style="margin-right:10px;"><rect width="36" height="36" rx="8" fill="#C9A84C"/><text x="18" y="26" text-anchor="middle" font-size="22" font-weight="800" fill="#0F2140">S</text></svg>
+<div><div class="logo-text">SunVolt<span>Energy</span></div><div class="logo-sub">Power Storage Solutions</div></div>
+</a>
+<button class="mobile-toggle" id="mobileToggle">&#9776;</button>
+<nav class="nav" id="nav">
+<a href="/" class="active">Home</a>
+<a href="products.html">Products</a>
+<a href="applications.html">Applications</a>
+<a href="resources.html">Resources</a>
+<a href="wholesale.html">Wholesale</a>
+<a href="about.html">About</a>
+<a href="contact.html" class="nav-cta">Get Quote</a>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="hero-bg"></div>
+<div class="container">
+<div class="hero-grid">
+<div class="hero-content">
+<div class="hero-tag">&#9889; Factory Direct B2B Supplier</div>
+<h1>Power Your World<br><span class="text-gradient">Reliably &amp; Affordably</span></h1>
+<p>Premium portable power stations and solar energy storage solutions. Direct from our ISO-certified factories in China to your market.</p>
+<div class="hero-actions">
+<a href="products.html" class="btn btn-primary">Explore Products</a>
+<a href="https://wa.me/8613025124521" class="btn btn-ghost" target="_blank">WhatsApp Us</a>
+</div>
+<div class="hero-stats">
+<div class="hs-item"><div class="hs-num"><span data-count="5000">0</span>+</div><div class="hs-lbl">Units Shipped</div></div>
+<div class="hs-item"><div class="hs-num">15+</div><div class="hs-lbl">Countries</div></div>
+<div class="hs-item"><div class="hs-num">99%</div><div class="hs-lbl">On-Time Delivery</div></div>
+</div>
+</div>
+<div class="hero-visual">
+<div class="hv-device">
+<div class="hv-inner"><div class="hv-bolt">&#9889;</div></div>
+<div class="hv-ring"></div>
+<div class="hv-ring-2"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="trust-bar">
+<div class="container">
+<div class="trust-inner">
+<span class="trust-item">&#9989; CE Certified</span>
+<span class="trust-item">&#9989; FCC Approved</span>
+<span class="trust-item">&#9989; ROHS Compliant</span>
+<span class="trust-item">&#9989; ISO 9001</span>
+<span class="trust-item">&#9989; LiFePO4 Batteries</span>
+<span class="trust-item">&#9989; 2-Year Warranty</span>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="sh"><span class="st">Why Solar Storage</span><h2>The Smart Energy Choice</h2><p>Reliable backup power that saves money and keeps businesses running</p></div>
+<div class="g-4">
+<div class="fc"><div class="fc-icon">&#9889;</div><h3>Reliable Power</h3><p>No more blackouts. Keep lights, fans, and essential devices running 24/7.</p></div>
+<div class="fc"><div class="fc-icon">&#128176;</div><h3>Save 60%</h3><p>Stop burning diesel. Solar power pays for itself in 6-18 months.</p></div>
+<div class="fc"><div class="fc-icon">&#127758;</div><h3>Zero Emissions</h3><p>Clean, silent, eco-friendly. No noise complaints.</p></div>
+<div class="fc"><div class="fc-icon">&#128230;</div><h3>B2B Wholesale</h3><p>Factory-direct. MOQ from 10 units. OEM/ODM available.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section s-dark">
+<div class="container">
+<div class="sh"><span class="st">Best Sellers</span><h2>Premium Product Line</h2><p>Engineered for reliability and performance in demanding conditions</p></div>
+<div class="g-3">
+<div class="pc">
+<div class="pc-visual pc-v1"><div class="pc-badge">Best Seller</div><div class="pc-icon">&#128268;</div></div>
+<div class="pc-body"><h3>SV-300</h3><div class="pc-sub">300Wh | 300W</div>
+<ul class="pc-specs"><li>LiFePO4 | 2000+ Cycles</li><li>Solar/Wall/Car Charging</li><li>3.5kg Ultra Portable</li><li>CE, FCC, ROHS</li></ul>
+<div class="pc-price">$75<small>/unit (50+)</small></div>
+<a href="https://wa.me/8613025124521" class="btn btn-primary" style="width:100%;text-align:center;justify-content:center;" target="_blank">Get Wholesale Price</a>
+</div></div>
+<div class="pc">
+<div class="pc-visual pc-v2"><div class="pc-badge">Most Popular</div><div class="pc-icon">&#128268;</div></div>
+<div class="pc-body"><h3>SV-500</h3><div class="pc-sub">500Wh | 500W</div>
+<ul class="pc-specs"><li>LiFePO4 | 2500+ Cycles</li><li>Pure Sine Wave | UPS</li><li>5.2kg | LCD Display</li><li>Solar Ready</li></ul>
+<div class="pc-price">$140<small>/unit (50+)</small></div>
+<a href="https://wa.me/8613025124521" class="btn btn-primary" style="width:100%;text-align:center;justify-content:center;" target="_blank">Get Wholesale Price</a>
+</div></div>
+<div class="pc">
+<div class="pc-visual pc-v3"><div class="pc-badge">High Capacity</div><div class="pc-icon">&#128268;</div></div>
+<div class="pc-body"><h3>SV-1000</h3><div class="pc-sub">1000Wh | 1000W</div>
+<ul class="pc-specs"><li>LiFePO4 | 3000+ Cycles</li><li>MPPT Controller</li><li>8.5kg | UPS Function</li><li>5-Year Battery Life</li></ul>
+<div class="pc-price">$260<small>/unit (50+)</small></div>
+<a href="https://wa.me/8613025124521" class="btn btn-primary" style="width:100%;text-align:center;justify-content:center;" target="_blank">Get Wholesale Price</a>
+</div></div>
+</div>
+<div style="text-align:center;margin-top:32px;"><a href="products.html" class="btn btn-primary">View Full Product Range &#8594;</a></div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="g-2">
+<div><div class="sh" style="text-align:left;"><span class="st">Why Partner With Us</span><h2 style="font-size:28px;">B2B Built for Distributors &amp; Brands</h2></div>
+<p>Based in Foshan, China - the global energy storage hub. We partner with ISO-certified manufacturers to deliver quality products at factory-direct prices.</p>
+<ul class="al">
+<li>Factory-direct pricing - no middlemen markups</li>
+<li>OEM/ODM - your brand, your packaging</li>
+<li>Samples shipped within 3-5 working days</li>
+<li>Worldwide shipping (sea/air/door-to-door)</li>
+<li>Flexible MOQ from 10 units</li>
+<li>15+ years export experience</li>
+</ul>
+<a href="wholesale.html" class="btn btn-primary">Start Partnership &#8594;</a>
+</div>
+<div class="about-visual"><div class="av-content"><span style="font-size:60px;">&#127981;</span><h3>Foshan, Guangdong, China</h3><p>The heart of the world manufacturing</p></div></div>
+</div>
+</div>
+</section>
+
+<!-- Applications Preview -->
+<section class="section s-dark">
+<div class="container">
+<div class="sh"><span class="st">Real-World Applications</span><h2>Power That Fits Your Life</h2><p>From home backup to business operations, see how SunVolt products work in real scenarios</p></div>
+<div class="g-3">
+<div style="background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px 28px;text-align:center;transition:var(--transition);">
+<div style="font-size:48px;margin-bottom:16px;">&#127968;</div>
+<h3 style="font-size:16px;font-weight:600;color:var(--primary);margin-bottom:6px;">Home Backup</h3>
+<p style="font-size:13px;color:var(--text-light);line-height:1.7;">Lights, fans, TVs, routers, and refrigerators during power outages.</p>
+<a href="applications.html" style="color:var(--accent);font-size:12px;font-weight:600;text-decoration:none;display:inline-block;margin-top:12px;">Learn More &#8594;</a>
+</div>
+<div style="background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px 28px;text-align:center;transition:var(--transition);">
+<div style="font-size:48px;margin-bottom:16px;">&#127970;</div>
+<h3 style="font-size:16px;font-weight:600;color:var(--primary);margin-bottom:6px;">Business & Retail</h3>
+<p style="font-size:13px;color:var(--text-light);line-height:1.7;">Keep shops, clinics, and offices running during outages.</p>
+<a href="applications.html" style="color:var(--accent);font-size:12px;font-weight:600;text-decoration:none;display:inline-block;margin-top:12px;">Learn More &#8594;</a>
+</div>
+<div style="background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px 28px;text-align:center;transition:var(--transition);">
+<div style="font-size:48px;margin-bottom:16px;">&#127917;</div>
+<h3 style="font-size:16px;font-weight:600;color:var(--primary);margin-bottom:6px;">Events & Outdoor</h3>
+<p style="font-size:13px;color:var(--text-light);line-height:1.7;">Quiet, clean power for weddings, markets, and construction sites.</p>
+<a href="applications.html" style="color:var(--accent);font-size:12px;font-weight:600;text-decoration:none;display:inline-block;margin-top:12px;">Learn More &#8594;</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Testimonials -->
+<section class="section">
+<div class="container">
+<div class="sh"><span class="st">Testimonials</span><h2>Trusted by Partners Worldwide</h2><p>Real feedback from our B2B clients across Africa and the Middle East</p></div>
+<div class="testimonials">
+<div class="testimonial-card">
+<div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<blockquote>"We started with 50 units for a trial. Now we order containers every quarter. The quality is excellent and their after-sales support is outstanding."</blockquote>
+<div class="author"><div class="author-avatar">AK</div><div class="author-info"><div class="author-name">Ahmed K.</div><div class="author-title">Distributor, Nigeria</div></div></div>
+</div>
+<div class="testimonial-card">
+<div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<blockquote>"Fast shipping, great communication, and the SV-500 is exactly what our market needs. Already reordered twice this year."</blockquote>
+<div class="author"><div class="author-avatar">MA</div><div class="author-info"><div class="author-name">Mohammed A.</div><div class="author-title">Wholesale Buyer, UAE</div></div></div>
+</div>
+<div class="testimonial-card">
+<div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<blockquote>"The OEM service allowed us to build our own brand. They handled everything from packaging to documentation. Highly recommended."</blockquote>
+<div class="author"><div class="author-avatar">JO</div><div class="author-info"><div class="author-name">James O.</div><div class="author-title">Brand Owner, Kenya</div></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Blog Preview -->
+<section class="section s-dark">
+<div class="container">
+<div class="sh"><span class="st">From Our Blog</span><h2>Industry Insights & Tips</h2><p>Expert advice on portable power, solar energy, and B2B importing</p></div>
+<div class="g-3">
+<div style="background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition);">
+<div style="height:160px;background:linear-gradient(135deg,#1a2744,#2a3f6a);display:flex;align-items:center;justify-content:center;font-size:40px;">&#9889;</div>
+<div style="padding:20px;">
+<div style="font-size:11px;color:var(--text-muted);margin-bottom:6px;">June 26, 2026</div>
+<h3 style="font-size:14px;font-weight:600;color:var(--primary);margin-bottom:6px;">Why LiFePO4 Batteries Are Best</h3>
+<p style="font-size:12px;color:var(--text-light);line-height:1.6;">2000-3000+ cycles, superior safety, and better heat performance.</p>
+</div></div>
+<div style="background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition);">
+<div style="height:160px;background:linear-gradient(135deg,#16203a,#243558);display:flex;align-items:center;justify-content:center;font-size:40px;">&#127758;</div>
+<div style="padding:20px;">
+<div style="font-size:11px;color:var(--text-muted);margin-bottom:6px;">June 22, 2026</div>
+<h3 style="font-size:14px;font-weight:600;color:var(--primary);margin-bottom:6px;">Solar Storage in Nigeria: Market</h3>
+<p style="font-size:12px;color:var(--text-light);line-height:1.6;">Why portable power station market is booming in Nigeria.</p>
+</div></div>
+<div style="background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition);">
+<div style="height:160px;background:linear-gradient(135deg,#0f1a30,#1a2d50);display:flex;align-items:center;justify-content:center;font-size:40px;">&#128666;</div>
+<div style="padding:20px;">
+<div style="font-size:11px;color:var(--text-muted);margin-bottom:6px;">June 18, 2026</div>
+<h3 style="font-size:14px;font-weight:600;color:var(--primary);margin-bottom:6px;">B2B Import Guide: Power Stations</h3>
+<p style="font-size:12px;color:var(--text-light);line-height:1.6;">Step-by-step from finding suppliers to customs clearance.</p>
+</div></div>
+</div>
+<div style="text-align:center;margin-top:32px;"><a href="blog.html" class="btn btn-primary">Read All Articles &#8594;</a></div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+<div class="container">
+<div class="sh"><span class="st">FAQ</span><h2>Frequently Asked Questions</h2><p>Common questions from our B2B partners</p></div>
+<div class="faq-list">
+<div class="faq-item open">
+<div class="faq-q">What is the minimum order quantity (MOQ)?<span class="faq-arrow">&#9660;</span></div>
+<div class="faq-a">Our MOQ is 10 units for standard products. For OEM/ODM orders, the MOQ is 50-100 units depending on the customization requirements. We also offer sample orders (1-2 units) for quality testing before bulk commitment.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q">What payment terms do you offer?<span class="faq-arrow">&#9660;</span></div>
+<div class="faq-a">We require 50% deposit to start production, with the 50% balance due before shipment. Payment methods include T/T bank transfer, Western Union, and Alibaba Trade Assurance.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q">How long does shipping take?<span class="faq-arrow">&#9660;</span></div>
+<div class="faq-a">Sample orders ship within 3-5 working days via DHL/FedEx (3-7 days). Bulk orders take 15-25 days for production. Sea freight to Africa/Middle East typically takes 20-30 days. Air freight is also available.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q">Do you provide OEM/private label services?<span class="faq-arrow">&#9660;</span></div>
+<div class="faq-a">Yes. We offer full OEM/ODM services including custom branding, packaging design, product specifications, and user manuals in your language. Your brand, your product.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q">What certifications do your products have?<span class="faq-arrow">&#9660;</span></div>
+<div class="faq-a">All our products are CE, FCC, and ROHS certified. We also provide ISO 9001 factory audits. Additional certifications for specific markets can be arranged.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Shipping Info -->
+<section class="section s-dark">
+<div class="container">
+<div class="sh"><span class="st">Global Logistics</span><h2>Shipping to Your Doorstep</h2><p>We handle everything from production to delivery</p></div>
+<div class="shipping-grid">
+<div class="shipping-card"><div class="ship-icon">&#128666;</div><h4>Sea Freight</h4><p>FCL and LCL from Shenzhen/Guangzhou to major ports worldwide. 20-30 days transit.</p></div>
+<div class="shipping-card"><div class="ship-icon">&#9992;</div><h4>Air Freight</h4><p>Express shipping for urgent orders. 5-10 days door-to-door. Ideal for samples.</p></div>
+<div class="shipping-card"><div class="ship-icon">&#128230;</div><h4>Door-to-Door</h4><p>Full logistics service including customs clearance and final delivery to your warehouse.</p></div>
+</div>
+</div>
+</section>
+
+<section class="cta">
+<div class="container"><h2>Ready to Partner?</h2><p>Contact us on WhatsApp. We respond within 1 hour.</p>
+<a href="https://wa.me/8613025124521" class="btn btn-primary" target="_blank">&#128172; Chat on WhatsApp</a>
+</div></section>
+
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div><a href="/" class="logo-footer">SunVolt<span>Energy</span></a><p>Factory-direct power storage solutions. Foshan, China.</p></div>
+<div><h4>Products</h4><a href="products.html">Portable Power Stations</a><a href="products.html">Solar Panels</a><a href="wholesale.html">OEM/ODM</a></div>
+<div><h4>Resources</h4><a href="applications.html">Applications</a><a href="resources.html">Downloads</a><a href="blog.html">Blog</a><a href="samples.html">Sample Request</a><div><h4>Support</h4><a href="warranty.html">Warranty & RMA</a><a href="shipping.html">Shipping & Payment</a><a href="privacy.html">Privacy Policy</a></div></div>
+<div><h4>Company</h4><a href="about.html">About Us</a><a href="wholesale.html">Wholesale</a><a href="contact.html">Contact</a></div>
+<div><h4>Contact</h4><a href="https://wa.me/8613025124521">WhatsApp: +86 130 2512 4521</a><a href="mailto:yixiao1221@outlook.com">yixiao1221@outlook.com</a></div>
+</div>
+<div class="copy">&copy; 2026 SunVolt Energy. All rights reserved. | A brand of SJ DOORS</div>
+</div>
+</footer>
+
+<a href="https://wa.me/8613025124521" class="wa-fab" target="_blank"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></a>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>20);});
+document.getElementById('mobileToggle').addEventListener('click',()=>{document.getElementById('nav').classList.toggle('open');});
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+document.querySelectorAll('[data-count]').forEach(el=>{
+  const target=parseInt(el.dataset.count);
+  const dur=2000,step=30;
+  let current=0,increment=target/(dur/step);
+  const timer=setInterval(()=>{current+=increment;if(current>=target){current=target;clearInterval(timer);}el.textContent=Math.floor(current);},step);
+});
+window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('loader').classList.add('done');},400);});
+</script>
+</body>
+</html>
+
+
