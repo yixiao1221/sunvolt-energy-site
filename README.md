@@ -1,60 +1,54 @@
-# SunVolt Energy - 独立站建设需求清单
+# SunVolt Energy — 独立站部署指南
 
-## 一、我需要你提供的东西
+## 项目信息
 
-### 1. Logo
-- 你的品牌标志（AI/PNG格式都可以）
-- 如果没有，我用文字Logo先顶着，你后面找人设计
-
-### 2. 产品图片 ⭐ 最重要
-| 产品 | 需要什么图 | 哪里找 |
-|------|-----------|--------|
-| 300Wh储能电源 | 正面图+侧面板图+包装图 | 问供应商要产品实拍 |
-| 500Wh储能电源 | 同上 | 问供应商 |
-| 1000Wh储能电源 | 同上 | 问供应商 |
-| 100W太阳能板 | 产品图 | 问供应商 |
-
-- 每款产品至少2-3张图
-- 白底图最好，方便抠图
-- 如果暂时没有，我先用占位图，后续替换
-
-### 3. 产品详细参数
-| 参数 | 举例 |
+| 项目 | 内容 |
 |------|------|
-| 型号 | SV-300 |
-| 容量 | 300Wh |
-| 输出功率 | 300W (峰值600W) |
-| 电池类型 | 磷酸铁锂 LiFePO4 |
-| 循环寿命 | 2000+ cycles |
-| 充电方式 | AC/太阳能/车充 |
-| 重量 | 3.5kg |
-| 尺寸 | 230x150x180mm |
-| 配件 | 适配器*1 / 车充线*1 / 说明书 |
-| 认证 | CE/FCC/ROHS |
+| 网站域名 | https://sunvolt.aluferdoors.com |
+| 上线平台 | Cloudflare Pages |
+| GitHub 仓库 | https://github.com/yixiao1221/sunvolt-energy-site |
+| GitHub 分支 | main（push 即自动部署） |
+| Cloudflare 项目名 | sunvolt-energy |
+| 本地文件夹 | C:\Users\83729\Documents\New project AI文件夹\sunvolt-energy |
+| 页面数 | 13 个 HTML 页面 |
+| 样式文件 | css/style.css（所有页面共用） |
+| GA4 衡量 ID | G-0BJ4JKZPC7 |
 
-### 4. 公司信息
-- 公司介绍（中英文）
-- 工厂照片（如有）
-- 合作品牌/客户logo（如有）
-- 认证证书（如有）
+## 部署链路
 
----
+修改文件 → git push → GitHub main 分支 → Cloudflare Pages 自动部署 → 网站更新
 
-## 二、我直接帮你做好的
+## 如何更新网站
 
-| 项目 | 说明 |
-|------|------|
-| ✅ 完整5页独立站 | Home / Products / About / Wholesale / Contact |
-| ✅ 中英双语 | 主要面向海外客户 |
-| ✅ 手机自适应 | 电脑/平板/手机都能看 |
-| ✅ SEO优化 | meta标签、结构化数据 |
-| ✅ WhatsApp直达 | 一键跳转聊天 |
-| ✅ Google Analytics | 已预留代码位 |
-| ✅ 速度优化 | 纯静态站，秒开 |
+每次改完文件后执行以下 4 行：
 
----
+  cd C:\Users\83729\Documents\New project AI文件夹\sunvolt-energy
+  git add .
+  git commit -m "描述你改了什么"
+  git push origin main
 
-## 三、当前进度
+等 1-2 分钟，Cloudflare 自动部署完成。
 
-建议你先把产品图片和参数从供应商那里要过来，要到了我就替换进去。
-现在我先用占位图和模拟参数把完整网站建出来。
+## Token 管理
+
+GitHub Token 已保存在本机 .git/config 中。
+如果过期，去 https://github.com/settings/tokens 创建新 token（勾选 repo），然后运行：
+
+  cd C:\Users\83729\Documents\New project AI文件夹\sunvolt-energy
+  git remote set-url origin https://yixiao1221:新token@github.com/yixiao1221/sunvolt-energy-site.git
+
+## GA4 转化事件
+
+- whatsapp_click — 点击任何 WhatsApp 链接
+- email_click — 点击邮件链接
+- form_submit — 提交联系表单
+
+## 注意事项
+
+- 所有页面共用 css/style.css，改样式只需改这一个文件
+- 产品图是占位图（来自 1688），需换成供应商实拍
+- Blog 有 5 篇空文章（链接到 #），需补内容或隐藏
+- 改完没生效：去 dash.cloudflare.com → Workers & Pages → sunvolt-energy → Deployments 检查状态
+- C 盘已清理过临时文件释放了约 1.6GB
+
+最后更新：2026-07-04
