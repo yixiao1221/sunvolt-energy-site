@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - SunVolt Energy</title>
+<meta name="description" content="Complete your order. Pay with USDT TRC-20, Bank Transfer, or PayPal.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'><rect width='36' height='36' rx='8' fill='%23C9A84C'/><text x='18' y='26' text-anchor='middle' font-size='22' font-weight='800' fill='%230F2140'>S</text></svg>">
+<link rel=stylesheet href=css/style.css>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://sunvolt.aluferdoors.com/checkout.html">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0BJ4JKZPC7"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0BJ4JKZPC7');
+</script>
+<style>
+.checkout-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:start; }
+.order-card { background:var(--bg-white); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; }
+.order-card-header { background:var(--primary); padding:20px 24px; }
+.order-card-header h3 { color:#fff; font-size:15px; font-weight:600; }
+.order-card-body { padding:24px; }
+.order-item { display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid var(--border); }
+.order-item:last-child { border-bottom:none; }
+.order-item .label { font-size:13px; color:var(--text-light); }
+.order-item .value { font-size:14px; font-weight:600; color:var(--text); }
+.order-total { display:flex; justify-content:space-between; align-items:center; padding:16px 24px; background:var(--accent-light); font-weight:700; }
+.order-total .total-label { font-size:14px; color:var(--primary); }
+.order-total .total-value { font-size:22px; color:var(--primary); }
+.form-group { margin-bottom:16px; }
+.form-group label { display:block; font-size:12px; font-weight:600; color:var(--text); margin-bottom:4px; }
+.form-group input { width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:var(--radius); font-family:Inter,sans-serif; font-size:14px; outline:none; transition:var(--transition); }
+.form-group input:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-light); }
+.pay-card { background:var(--bg-white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:24px; margin-bottom:16px; }
+.pay-card h4 { font-size:14px; font-weight:700; color:var(--primary); margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+.pay-card p { font-size:12px; color:var(--text-light); line-height:1.6; margin-bottom:12px; }
+.wallet-addr { display:flex; gap:8px; align-items:center; background:var(--light); padding:10px 14px; border-radius:var(--radius); font-family:monospace; font-size:12px; word-break:break-all; }
+.wallet-addr .addr { flex:1; color:var(--text); }
+.copy-btn { background:var(--accent); color:var(--primary); border:none; border-radius:6px; padding:6px 14px; font-size:11px; font-weight:600; cursor:pointer; white-space:nowrap; transition:var(--transition); }
+.copy-btn:hover { background:var(--accent-hover); }
+.copy-btn.copied { background:var(--primary); color:#fff; }
+.qr-placeholder { width:140px; height:140px; background:var(--light); border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; font-size:11px; color:var(--text-muted); text-align:center; margin-bottom:12px; }
+.qr-placeholder img { width:140px; height:140px; border-radius:var(--radius); }
+.steps-card { background:var(--bg-white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:28px; position:sticky; top:100px; }
+.steps-card h3 { font-size:16px; font-weight:700; color:var(--primary); margin-bottom:16px; }
+.steps-card ol { padding-left:20px; margin-bottom:20px; }
+.steps-card li { font-size:13px; color:var(--text); line-height:1.8; margin-bottom:6px; }
+.steps-card .btn { width:100%; justify-content:center; }
+.wa-pay-btn { display:flex; align-items:center; justify-content:center; gap:6px; }
+.no-product { text-align:center; padding:80px 0; }
+.no-product h2 { font-size:24px; color:var(--primary); margin-bottom:10px; }
+.no-product p { color:var(--text-light); font-size:14px; margin-bottom:20px; }
+@media (max-width:768px) {
+  .checkout-grid { grid-template-columns:1fr; gap:32px; }
+  .steps-card { position:static; }
+}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+<div class="container header-inner">
+<a href="index.html" class="logo">
+<svg width="36" height="36" viewBox="0 0 36 36" style="margin-right:10px;"><rect width="36" height="36" rx="8" fill="#C9A84C"/><text x="18" y="26" text-anchor="middle" font-size="22" font-weight="800" fill="#0F2140">S</text></svg>
+<div><div class="logo-text">SunVolt<span>Energy</span></div><div class="logo-sub">Power Storage Solutions</div></div>
+</a>
+<button class="mobile-toggle" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="products.html">Products</a>
+<a href="about.html">About</a>
+<a href="contact.html" class="nav-cta">Contact</a>
+</nav>
+</div>
+</header>
+
+<section class="page-hero"><div class="container">
+<h1>Checkout</h1>
+<p>Complete your order. Pay with USDT, bank transfer, or PayPal.</p>
+</div></section>
+
+<section class="section">
+<div class="container" id="checkoutApp">
+
+<div style="display:none;" id="noProductSection">
+<div class="no-product">
+<h2>No Product Selected</h2>
+<p>Please select a product from our catalog first.</p>
+<a href="products.html" class="btn btn-primary">View Products</a>
+</div>
+</div>
+
+<div style="display:none;" id="checkoutSection">
+<div class="checkout-grid">
+
+<div>
+<!-- Order Summary -->
+<div class="order-card">
+<div class="order-card-header"><h3>Order Summary</h3></div>
+<div class="order-card-body">
+<div class="order-item"><span class="label">Product</span><span class="value" id="productName">-</span></div>
+<div class="order-item"><span class="label">Quantity</span><span class="value">1</span></div>
+<div class="order-item"><span class="label">Shipping</span><span class="value">TBD (contact us)</span></div>
+</div>
+</div>
+<div class="order-total">
+<span class="total-label">Total</span>
+<span class="total-value" id="totalPrice">$0</span>
+</div>
+
+<div style="height:24px;"></div>
+
+<!-- Customer info -->
+<h3 style="font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;">Your Information</h3>
+<div class="form-group">
+<label>Your Name *</label>
+<input type="text" id="customerName" placeholder="e.g. John Smith">
+</div>
+<div class="form-group">
+<label>WhatsApp / Phone Number</label>
+<input type="text" id="customerPhone" placeholder="e.g. +234 800 000 000">
+</div>
+<div class="form-group">
+<label>Email (optional)</label>
+<input type="email" id="customerEmail" placeholder="for order confirmation">
+</div>
+
+<div style="height:24px;"></div>
+
+<!-- USDT Payment -->
+<h3 style="font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;">1. Pay with USDT (TRC-20)</h3>
+<div class="pay-card">
+<h4>&#8377; USDT TRC-20</h4>
+<p>Send the exact amount to the address below. Network: <strong>TRC-20</strong> only.</p>
+<div class="wallet-addr">
+<span class="addr" id="usdtAddress">TXYZxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+<button class="copy-btn" id="copyBtn" onclick="copyAddress()">Copy</button>
+</div>
+<p style="font-size:11px;color:var(--text-muted);margin-top:8px;">&#9888; Make sure to use TRC-20 network. Other networks will result in lost funds.</p>
+<div class="qr-placeholder" id="qrContainer">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=TXYZxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" alt="USDT QR Code" id="qrImg">
+</div>
+<p style="font-size:11px;color:var(--text-muted);">Scan QR or copy address above to send USDT</p>
+</div>
+
+<!-- PayPal -->
+<h3 style="font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;">2. Pay with PayPal</h3>
+<div class="pay-card">
+<h4>&#128179; PayPal</h4>
+<p>Click the button below to pay via PayPal. Additional 4.4% fee applies.</p>
+<a href="#" class="btn btn-primary" style="display:inline-flex;" id="paypalLink" target="_blank">Pay with PayPal</a>
+</div>
+
+</div>
+
+<!-- Steps Card -->
+<div>
+<div class="steps-card">
+<h3>&#9989; Complete Your Order</h3>
+<ol>
+<li>Choose payment method (USDT or PayPal)</li>
+<li>Send the exact amount shown above</li>
+<li>Take a screenshot of the payment</li>
+<li>Click the WhatsApp button below</li>
+<li>Send the screenshot to confirm</li>
+<li>We ship within 24 hours of confirmation</li>
+</ol>
+<a class="btn btn-primary wa-pay-btn" id="confirmBtn" href="https://wa.me/8613025124521" target="_blank">
+&#128172; I've Paid — Confirm on WhatsApp
+</a>
+<p style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:10px;">We respond within 30 minutes</p>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</section>
+
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var product = params.get("p");
+  var price = params.get("price");
+
+  if (product && price) {
+    document.getElementById("productName").textContent = product;
+    document.getElementById("totalPrice").textContent = "$" + price;
+    document.getElementById("checkoutSection").style.display = "block";
+
+    // Update WhatsApp confirmation message
+    var nameInput = document.getElementById("customerName");
+    var phoneInput = document.getElementById("customerPhone");
+    var confirmBtn = document.getElementById("confirmBtn");
+
+    function updateWaLink() {
+      var name = nameInput.value.trim() || "Customer";
+      var phone = phoneInput.value.trim() || "Not provided";
+      var msg = "Payment+Confirmation%0A%0A"
+        + "Name:+" + encodeURIComponent(name) + "%0A"
+        + "Product:+" + encodeURIComponent(product) + "%0A"
+        + "Amount:+" + "$" + price + "%0A"
+        + "Phone/WhatsApp:+" + encodeURIComponent(phone) + "%0A%0A"
+        + "I+have+sent+the+payment.+Please+confirm+and+arrange+shipping.";
+      confirmBtn.href = "https://wa.me/8613025124521?text=" + msg;
+    }
+
+    nameInput.addEventListener("input", updateWaLink);
+    phoneInput.addEventListener("input", updateWaLink);
+    updateWaLink();
+
+    // Track
+    gtag('event', 'view_checkout', {
+      'product': product,
+      'price': price
+    });
+  } else {
+    document.getElementById("noProductSection").style.display = "block";
+  }
+})();
+
+function copyAddress() {
+  var addr = document.getElementById("usdtAddress");
+  var btn = document.getElementById("copyBtn");
+  // Fallback copy method
+  var ta = document.createElement("textarea");
+  ta.value = addr.textContent;
+  ta.style.position = "fixed";
+  ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand("copy");
+  document.body.removeChild(ta);
+  btn.textContent = "Copied!";
+  btn.classList.add("copied");
+  setTimeout(function() {
+    btn.textContent = "Copy";
+    btn.classList.remove("copied");
+  }, 2000);
+}
+</script>
+
+<footer class="footer"><div class="container">
+<div class="footer-grid">
+<div><a href="index.html" class="logo-footer">SunVolt<span>Energy</span></a><p>Factory-direct portable power stations. Based in Foshan, China.</p></div>
+<div><h4>Products</h4><a href="products.html">Portable Power Stations</a><a href="wholesale.html">OEM/ODM</a></div>
+<div><h4>Company</h4><a href="about.html">About Us</a><a href="contact.html">Contact</a></div>
+<div><h4>Contact</h4><a href="https://wa.me/8613025124521">WhatsApp: +86 130 2512 4521</a><a href="mailto:yixiao1221@outlook.com">yixiao1221@outlook.com</a></div>
+</div>
+<div class="copy">&copy; 2026 SunVolt Energy. All rights reserved.</div>
+</div></footer>
+
+<script>window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>20);});</script>
+</body>
+</html>
