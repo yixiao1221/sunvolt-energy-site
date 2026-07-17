@@ -131,7 +131,7 @@ a { color:inherit; text-decoration:none; }
 
 .section-title { text-align:center; margin-bottom:48px; }
 .section-tag { display:inline-block; background:#C9A84C; color:#0F2140; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; padding:4px 14px; border-radius:20px; margin-bottom:10px; }
-.section-title h2 { font-size:30px; font-weight:700; color:var(--primary); letter-spacing:-0.5px; }
+.section-title h2 { display:inline-block; background:#C9A84C; color:#0F2140; font-size:24px; font-weight:700; padding:6px 18px; border-radius:8px; letter-spacing:-0.5px; margin-top:4px; }
 
 .products-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:28px; }
 .product-card { background:var(--bg-white); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; transition:var(--transition); }
