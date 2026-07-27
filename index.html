@@ -299,7 +299,7 @@ document.querySelectorAll('[data-count]').forEach(el=>{
   let current=0,increment=target/(dur/step);
   const timer=setInterval(()=>{current+=increment;if(current>=target){current=target;clearInterval(timer);}el.textContent=Math.floor(current);},step);
 });
-window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('loader').classList.add('done');},400);});
+function hideLoader(){var el=document.getElementById('loader');if(el)el.classList.add('done');}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',hideLoader);}else{hideLoader();}setTimeout(hideLoader,2000);
 </script>
 </div><div id="loader"><div class="loader-inner"><span></span><span></span><span></span></div></div>
 </body>
