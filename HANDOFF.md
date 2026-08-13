@@ -20,15 +20,16 @@ SunVolt 是主打产品：39 款便携式电源（300W-1100W）、太阳能板�
 
 ### Cloudflare（部署）
 - 账号 ID: `12a9f1a1cecb9c09810c089fc8277d76`
-- API Token: (保存在微信/密码管理器，不在文档里)
+- API Token: 在本地 `C:\Users\83729\Documents\New project AI文件夹\check_deploy.py` 里
 - Pages 项目: `sunvolt-energy`
 - 域名: `sunvolt.aluferdoors.com`（绑定在 Pages 项目上）
+- 注意: 本机访问 api.cloudflare.com 需开全局代理（2026-08-13 已验证可通）
 
 ### GitHub
 - 仓库: `yixiao1221/sunvolt-energy-site`（main 分支）
 - 仓库是公开的，但 push 需要写权限 token
 - Token: git remote 里嵌入的 PAT 已于 2026-08-13 更新（scope: repo，有效期至 2026-11-11）
-- 本地与远程已同步（HEAD `c5469f1`）
+- 本地与远程已同步（HEAD `06feb82`）
 
 ### Google Analytics 4
 - 属性 ID: `542483561`
@@ -127,6 +128,9 @@ cd "C:\Users\83729\Documents\New project AI文件夹"
 - ✅ robots.txt 开头的 BOM 已移除
 - ✅ 门窗站 WordPress 后台可编辑（cookie + nonce 会话，已验证 administrator 权限）
 - ✅ Cloudflare 部署通道验证通过（token 在本地 `check_deploy.py`，访问 api.cloudflare.com 需开全局代理）
+- ✅ SunVolt cta_click 修复：内联样式按钮现在也能触发（tracking.js v2，2026-08-13 上线）
+- ✅ 新增 B2B 文章 `blog-import-power-stations-china`（已上线/进 sitemap）
+- ✅ 修复 5 篇旧博客 JSON-LD headline 复制错误 + blog 列表页漏卡问题
 
 ### 待办
 - ⏳ Meta Pixel（等用户创建 FB Business 账号后提供 15 位 Pixel ID）
@@ -134,7 +138,9 @@ cd "C:\Users\83729\Documents\New project AI文件夹"
 - ⏳ GA4 里把 whatsapp_click/form_submit 标记为关键事件（用户手动操作）
 - ⏳ Facebook 广告投放（用户计划投 FB）
 - ✅ GitHub 新 PAT 已配置并推送成功，本地与远程已同步（2026-08-13）
-- ⏳ 门窗站 AIOSEO 与 Rank Math 同时激活（首页 meta/sitemap 实际由 Rank Math 输出），需决定保留哪一个，避免 SEO 冲突
+- ✅ 门窗站 SEO 插件核查：仅 Rank Math 激活（AIOSEO、SureRank 均为停用），无冲突
+- ⏳ 门窗站 `/shop/` 软 404：需加 `/shop/` → `/products/` 301 跳转，或 WooCommerce 站点可见性改 Live
+- ⏳ 门窗站 PixelYourSite 已装但未配置 Pixel ID（等 FB Business 账号）
 
 ---
 
@@ -184,7 +190,8 @@ POST https://analyticsdata.googleapis.com/v1beta/properties/542483561:runReport
 
 - 域名: aluferdoors.com
 - 平台: WordPress + Elementor + Astra
-- SEO 插件: AIOSEO 与 Rank Math **同时激活**（首页 meta 与 sitemap 实际由 Rank Math 输出）
+- SEO 插件: 仅 **Rank Math** 激活（AIOSEO、SureRank 停用），首页 meta 与 sitemap 由 Rank Math 输出
 - GA4: 已检测到 Google Site Kit 注入的 `GT-5786T895`，数据确认进入属性 `542483561`
 - 后台: `yixiao1221@outlook.com`（administrator），用 `wp_cookies.txt` + `wp_nonce.txt` 操作
+- 转化追踪: Site Kit 自动追踪 CF7 表单与 WooCommerce 事件；WhatsApp 浮窗点击未埋点（低优先级）
 - 主要用途: 门窗业务展示 + SunVolt 关联推荐
