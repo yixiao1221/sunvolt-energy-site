@@ -139,7 +139,7 @@ cd "C:\Users\83729\Documents\New project AI文件夹"
 - ⏳ Facebook 广告投放（用户计划投 FB）
 - ✅ GitHub 新 PAT 已配置并推送成功，本地与远程已同步（2026-08-13）
 - ✅ 门窗站 SEO 插件核查：仅 Rank Math 激活（AIOSEO、SureRank 均为停用），无冲突
-- ⏳ 门窗站 `/shop/` 软 404：需加 `/shop/` → `/products/` 301 跳转，或 WooCommerce 站点可见性改 Live
+- ✅ 门窗站 `/shop/` 软 404 已修复（2026-08-13）：站点可见性改 Live，商店页面从已删除的 ID 15 改到现有 Shop 页 3314
 - ⏳ 门窗站 PixelYourSite 已装但未配置 Pixel ID（等 FB Business 账号）
 
 ---
