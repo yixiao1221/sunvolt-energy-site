@@ -26,7 +26,9 @@ SunVolt 是主打产品：39 款便携式电源（300W-1100W）、太阳能板�
 
 ### GitHub
 - 仓库: `yixiao1221/sunvolt-energy-site`（main 分支）
-- Token: (保存在微信/密码管理器)
+- 仓库是公开的，但 push 需要写权限 token
+- Token: git remote 里嵌入的旧 PAT 已于 2026-08-13 失效，需用户提供新 PAT（scope: repo）
+- 本地提交已推进到 `4b2dc0c`，等新 token 后执行 `git push origin main`
 
 ### Google Analytics 4
 - 属性 ID: `542483561`
@@ -40,7 +42,9 @@ SunVolt 是主打产品：39 款便携式电源（300W-1100W）、太阳能板�
 - PayPal / 银行转账：见 checkout.html
 
 ### 其他
-- WordPress API（门窗站，只读）: `yixiao1221@outlook.com` / (密码在微信)
+- WordPress 后台（门窗站）: `yixiao1221@outlook.com`（administrator）
+- 登录方式: 会话 cookie 保存在 `wp_cookies.txt`，nonce 保存在 `wp_nonce.txt`
+- 注意: 该站 Application Passwords 被主机/插件禁用，后台没有"应用程序密码"选项，旧的应用密码已失效；用 cookie + X-WP-Nonce 操作 REST API
 
 ---
 
@@ -119,12 +123,18 @@ cd "C:\Users\83729\Documents\New project AI文件夹"
 - ✅ FAQ 答案金色
 - ✅ SEO 基础完整（18 页标题/描述/canonical/JSON-LD）
 - ✅ sitemap.xml + robots.txt
+- ✅ URL 统一为无 .html 的干净地址（canonical/内链/sitemap，2026-08-13 已用 Wrangler 部署上线并验证）
+- ✅ robots.txt 开头的 BOM 已移除
+- ✅ 门窗站 WordPress 后台可编辑（cookie + nonce 会话，已验证 administrator 权限）
+- ✅ Cloudflare 部署通道验证通过（token 在本地 `check_deploy.py`，访问 api.cloudflare.com 需开全局代理）
 
 ### 待办
 - ⏳ Meta Pixel（等用户创建 FB Business 账号后提供 15 位 Pixel ID）
 - ⏳ Google Ads 转化代码（如果用户要投 Google Ads）
 - ⏳ GA4 里把 whatsapp_click/form_submit 标记为关键事件（用户手动操作）
 - ⏳ Facebook 广告投放（用户计划投 FB）
+- ⏳ GitHub 新 PAT（旧 token 失效，本地提交 `4b2dc0c` 及之前的 `sync` 提交尚未推送）
+- ⏳ 门窗站 AIOSEO 与 Rank Math 同时激活（首页 meta/sitemap 实际由 Rank Math 输出），需决定保留哪一个，避免 SEO 冲突
 
 ---
 
@@ -174,7 +184,7 @@ POST https://analyticsdata.googleapis.com/v1beta/properties/542483561:runReport
 
 - 域名: aluferdoors.com
 - 平台: WordPress + Elementor + Astra
-- SEO 插件: AIOSEO（用户提到过）
-- GA4: 页面源码里未检测到 GA4 代码，需要检查 WordPress 插件设置
+- SEO 插件: AIOSEO 与 Rank Math **同时激活**（首页 meta 与 sitemap 实际由 Rank Math 输出）
+- GA4: 已检测到 Google Site Kit 注入的 `GT-5786T895`，数据确认进入属性 `542483561`
+- 后台: `yixiao1221@outlook.com`（administrator），用 `wp_cookies.txt` + `wp_nonce.txt` 操作
 - 主要用途: 门窗业务展示 + SunVolt 关联推荐
-
