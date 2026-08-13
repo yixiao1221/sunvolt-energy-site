@@ -17,8 +17,10 @@
       return;
     }
 
-    // CTA / button click
-    if (el.closest('.btn') || el.classList.contains('btn-primary') ||
+    // CTA / button click (covers .btn/.nav-cta classes and inline-styled buttons)
+    var style = el.getAttribute('style') || '';
+    var isInlineCta = style.indexOf('background') !== -1 && style.indexOf('padding') !== -1;
+    if (isInlineCta || el.closest('.btn') || el.classList.contains('btn-primary') ||
         el.classList.contains('nav-cta') || el.closest('form')) {
       gtag('event', 'cta_click', {
         event_category: 'engagement',
