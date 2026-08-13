@@ -14,12 +14,12 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sunvolt.aluferdoors.com/checkout.html">
 <meta property="og:site_name" content="SunVolt Energy">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0BJ4JKZPC7"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0YC6YQMSW4"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-0BJ4JKZPC7');
+gtag('config', 'G-0YC6YQMSW4');
 </script>
 <style>
 .checkout-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:start; }
@@ -259,5 +259,18 @@ function copyAddress() {
 </div></footer>
 
 <script>window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>20);});</script>
+<script src="js/tracking.js"></script>
+<script>
+document.addEventListener("click", function(e) {
+  var el = e.target.closest("button");
+  if (el && (el.innerText.indexOf("Paid") !== -1 || el.innerText.indexOf("Confirm") !== -1)) {
+    gtag("event", "purchase", {
+      event_category: "conversion",
+      value: 1,
+      page_location: window.location.href
+    });
+  }
+});
+</script>
 </body>
 </html>
