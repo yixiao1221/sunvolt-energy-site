@@ -27,8 +27,8 @@ SunVolt 是主打产品：39 款便携式电源（300W-1100W）、太阳能板�
 ### GitHub
 - 仓库: `yixiao1221/sunvolt-energy-site`（main 分支）
 - 仓库是公开的，但 push 需要写权限 token
-- Token: git remote 里嵌入的旧 PAT 已于 2026-08-13 失效，需用户提供新 PAT（scope: repo）
-- 本地提交已推进到 `4b2dc0c`，等新 token 后执行 `git push origin main`
+- Token: git remote 里嵌入的 PAT 已于 2026-08-13 更新（scope: repo，有效期至 2026-11-11）
+- 本地与远程已同步（HEAD `c5469f1`）
 
 ### Google Analytics 4
 - 属性 ID: `542483561`
@@ -133,7 +133,7 @@ cd "C:\Users\83729\Documents\New project AI文件夹"
 - ⏳ Google Ads 转化代码（如果用户要投 Google Ads）
 - ⏳ GA4 里把 whatsapp_click/form_submit 标记为关键事件（用户手动操作）
 - ⏳ Facebook 广告投放（用户计划投 FB）
-- ⏳ GitHub 新 PAT（旧 token 失效，本地提交 `4b2dc0c` 及之前的 `sync` 提交尚未推送）
+- ✅ GitHub 新 PAT 已配置并推送成功，本地与远程已同步（2026-08-13）
 - ⏳ 门窗站 AIOSEO 与 Rank Math 同时激活（首页 meta/sitemap 实际由 Rank Math 输出），需决定保留哪一个，避免 SEO 冲突
 
 ---
