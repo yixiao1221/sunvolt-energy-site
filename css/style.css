@@ -196,6 +196,9 @@ a { color:inherit; text-decoration:none; }
 .s-dark h3 { color:#fff; }
 .s-dark .fc h3 { color:var(--primary); }
 .s-dark .fc p { color:var(--text-light); }
+.s-dark .section-title h2 { color:#0F2140; }
+.s-dark .why-card h3, .s-dark .step-card h3, .s-dark .feature-card h3 { color:var(--primary); }
+.s-dark .why-card p, .s-dark .step-card p, .s-dark .feature-card p { color:var(--text-light); }
 
 .cta p, .cta li { color:rgba(255,255,255,0.65); }
 .cta-section p { color:rgba(255,255,255,0.65); max-width:450px; margin:0 auto 28px; font-size:15px; }
