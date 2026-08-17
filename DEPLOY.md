@@ -2,7 +2,7 @@
 
 ## 📦 项目位置
 - GitHub 仓库：`yixiao1221/sunvolt-energy-site`（主分支 `main`）
-- 线上地址：`https://sunvolt.aluferdoors.com`
+- 线上地址：`https://sunvoltglobal.com`
 - Cloudflare Pages 项目：`sunvolt-energy`
 
 ## 🔑 需要保存的关键信息
@@ -74,7 +74,7 @@ npx wrangler pages deploy . --project-name sunvolt-energy --branch main
 我知道你的网站信息：
 - GitHub: yixiao1221/sunvolt-energy-site
 - Cloudflare Pages: sunvolt-energy
-- 域名: sunvolt.aluferdoors.com
+- 域名: sunvoltglobal.com
 - Cloudflare Account ID: (记账里)
 - Cloudflare API Token: (记账里)
 帮我更新网站，需要先 pull 最新代码，修改后 push 并部署。

@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://sunvolt.aluferdoors.com/sitemap.xml
+Sitemap: https://sunvoltglobal.com/sitemap.xml

@@ -9,7 +9,7 @@
 
 | 网站 | 域名 | 类型 | 技术栈 |
 |------|------|------|--------|
-| SunVolt Energy | sunvolt.aluferdoors.com | 储能电源 B2B | 静态 HTML/CSS/JS + Cloudflare Pages |
+| SunVolt Energy | sunvoltglobal.com | 储能电源 B2B | 静态 HTML/CSS/JS + Cloudflare Pages |
 | SJ DOORS | aluferdoors.com | 门窗制造 | WordPress + Elementor + Astra |
 
 SunVolt 是主打产品：39 款便携式电源（300W-1100W）、太阳能板、配件。B2B 批发为主，也做 C 端零售。
@@ -22,7 +22,7 @@ SunVolt 是主打产品：39 款便携式电源（300W-1100W）、太阳能板�
 - 账号 ID: `12a9f1a1cecb9c09810c089fc8277d76`
 - API Token: 在本地 `C:\Users\83729\Documents\New project AI文件夹\check_deploy.py` 里
 - Pages 项目: `sunvolt-energy`
-- 域名: `sunvolt.aluferdoors.com`（绑定在 Pages 项目上）
+- 域名: `sunvoltglobal.com`（绑定在 Pages 项目上）
 - 注意: 本机访问 api.cloudflare.com 需开全局代理（2026-08-13 已验证可通）
 
 ### GitHub
@@ -89,7 +89,7 @@ cd "C:\Users\83729\Documents\New project AI文件夹"
 & "C:\Users\83729\.cache\codex-runtimes\codex-primary-runtime\dependencies\bin\fallback\pnpm.cmd" add wrangler
 ```
 
-部署后用 `curl https://sunvolt.aluferdoors.com` 验证 200。
+部署后用 `curl https://sunvoltglobal.com` 验证 200。
 
 ### 修改代码流程
 1. 修改本地文件
