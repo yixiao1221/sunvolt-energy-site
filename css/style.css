@@ -109,13 +109,13 @@ a { color:inherit; text-decoration:none; }
 .pc-body h3 { font-size:18px; font-weight:700; color:var(--primary); }
 .pc-sub { font-size:13px; color:#1A1A1A; margin-bottom:12px; }
 .pc-specs { list-style:none; font-size:13px; color:#1A1A1A; line-height:1.8; margin-bottom:16px; }
-.pc-specs li::before { content:"\\2713"; color:var(--accent); font-weight:bold; margin-right:8px; }
+.pc-specs li::before { content:"\2713"; color:var(--accent); font-weight:bold; margin-right:8px; }
 .pc-price { font-size:24px; font-weight:800; color:var(--primary); margin-bottom:16px; }
 .pc-price small { font-size:11px; font-weight:400; color:var(--text-muted); display:block; }
 
 .al { list-style:none; margin-bottom:20px; }
 .al li { padding:5px 0; font-size:14px; color:var(--text); }
-.al li::before { content:"\\2713"; color:var(--accent); font-weight:bold; margin-right:10px; }
+.al li::before { content:"\2713"; color:var(--accent); font-weight:bold; margin-right:10px; }
 .about-visual { background:var(--bg); border-radius:var(--radius-lg); padding:48px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
 .av-content h3 { color:var(--primary); margin:12px 0 4px; }
 .av-content p { color:var(--text-light); font-size:13px; }
@@ -166,7 +166,7 @@ a { color:inherit; text-decoration:none; }
 .about-list { list-style:none; padding:0; }
 .about-list li { padding:6px 0; font-size:13px; color:var(--text); border-bottom:1px solid var(--border); display:flex; align-items:center; gap:8px; }
 .about-list li:last-child { border-bottom:none; }
-.about-list li::before { content:"\\2713"; color:var(--accent); font-weight:bold; flex-shrink:0; }
+.about-list li::before { content:"\2713"; color:var(--accent); font-weight:bold; flex-shrink:0; }
 
 .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; }
 .feature-card { background:var(--bg-white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:28px; text-align:center; transition:var(--transition); }
