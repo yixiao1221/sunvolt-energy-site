@@ -98,7 +98,7 @@ tion>
 <div class="container">
 <div class="factory-video-grid">
 <div class="factory-video-frame">
-<video autoplay muted loop playsinline preload="auto" poster="images/factory-front.jpg">
+<video class="factory-autoplay" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="images/factory-front.jpg">
 <source src="videos/factory-showcase.mp4" type="video/mp4">
 </video>
 </div>
@@ -345,6 +345,24 @@ document.querySelectorAll('[data-count]').forEach(el=>{
   const dur=2000,step=30;
   let current=0,increment=target/(dur/step);
   const timer=setInterval(()=>{current+=increment;if(current>=target){current=target;clearInterval(timer);}el.textContent=Math.floor(current);},step);
+});
+function tryPlay(video){
+  video.muted = true;
+  video.setAttribute('muted','');
+  var p = video.play();
+  if (p && p.catch) { p.catch(function(){}); }
+}
+document.querySelectorAll('video.factory-autoplay').forEach(function(video){
+  tryPlay(video);
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) { tryPlay(entry.target); } else { entry.target.pause(); }
+      });
+    }, {threshold: 0.25});
+    observer.observe(video);
+  }
+  document.addEventListener('touchstart', function(){ tryPlay(video); }, {once:true});
 });
 </script>
 </div>
