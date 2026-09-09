@@ -2,6 +2,7 @@
 
 > 这份文档用于在更换 Codex 账号/对话丢失时，让新 Codex 快速接管全部工作。
 > 使用方法：新对话开始时，直接把本文件内容粘贴给 Codex，或让 Codex 读取本文件。
+> 电脑坏了时：在新电脑安装 Git + Node + Codex，clone GitHub 仓库后继续读取本文件。
 
 ---
 
@@ -13,6 +14,11 @@
 | SJ DOORS | aluferdoors.com | 门窗制造 | WordPress + Elementor + Astra |
 
 SunVolt 是主打产品：39 款便携式电源（300W-1100W）、太阳能板、配件。B2B 批发为主，也做 C 端零售。
+
+已扩展第二条产品线：
+- 便携式电源：`products.html`
+- 别墅 / 商业 / 离网 / 混网一体式太阳能储能：`solar-solutions.html`
+- 首页已经放了“Integrated Solar Storage”入口和逆变器/蓄电池图。
 
 ---
 
@@ -54,8 +60,9 @@ SunVolt 是主打产品：39 款便携式电源（300W-1100W）、太阳能板�
 ```
 C:\Users\83729\Documents\New project AI文件夹\
 ├── sunvolt-energy\          # SunVolt 网站源码（Git 仓库）
-│   ├── index.html           # 首页
-│   ├── products.html        # 产品页（39 款）
+│   ├── index.html           # 首页（含一体式储能板块）
+│   ├── products.html        # 便携式产品页（39 款）
+│   ├── solar-solutions.html # 别墅/商业/离网/混网一体式储能页
 │   ├── checkout.html        # 结算页（USDT 收款）
 │   ├── css\style.css        # 全部样式
 │   ├── js\tracking.js       # GA4 转化追踪
@@ -112,9 +119,14 @@ cd "C:\Users\83729\Documents\New project AI文件夹"
 
 ---
 
-## 6. 当前状态（2026-08-13）
+## 6. 当前状态（2026-09-10）
 
 ### 已完成
+- ✅ SunVolt 主页修复全屏布局（错误 `tion>` 已改回 `</section>`）
+- ✅ 第二条产品线 `solar-solutions` 已上线：Villa / Commercial / Off-Grid / Hybrid
+- ✅ 逆变器 + 蓄电池图片已加入主页和 Solar Solutions 页（`images/ess-inverter.jpg`、`images/ess-battery.jpg`）
+- ✅ 全站导航、首页、产品页、sitemap 已加一体式储能入口
+- ✅ 门窗站联系号码已统一为 `+86 18025872071`（页头/WhatsApp/联系方式页）
 - ✅ 全部按钮可用（内联样式方案）
 - ✅ 文字对比度修复（深色区域/白字/金标题）
 - ✅ GA4 正确 ID + 转化事件（whatsapp_click、cta_click、form_submit、begin_checkout、purchase）
@@ -133,6 +145,7 @@ cd "C:\Users\83729\Documents\New project AI文件夹"
 - ✅ 修复 5 篇旧博客 JSON-LD headline 复制错误 + blog 列表页漏卡问题
 
 ### 待办
+- ⏳ 俄罗斯市场后续：做俄语版页面 + Yandex 验证 + 俄语关键词
 - ⏳ Meta Pixel（等用户创建 FB Business 账号后提供 15 位 Pixel ID）
 - ⏳ Google Ads 转化代码（如果用户要投 Google Ads）
 - ⏳ GA4 里把 whatsapp_click/form_submit 标记为关键事件（用户手动操作）
@@ -147,7 +160,11 @@ cd "C:\Users\83729\Documents\New project AI文件夹"
 ## 7. 新 Codex 对话开场白模板
 
 > 请读取 `C:\Users\83729\Documents\New project AI文件夹\sunvolt-energy\HANDOFF.md`，这是网站管理文档。
+> 我的电脑/聊天记录可能已更换，请先确认当前网站线上状态再继续。
 > 我需要你继续管理 SunVolt 和门窗网站。当前任务是：______（描述你要做的事）
+
+电脑全丢后的“接力提示”：
+> 我换了新电脑，旧的本地文件和 Codex 聊天记录都没有了。请先读取仓库里的 `HANDOFF.md` 和 `DEPLOY.md`，告诉我 SunVolt Energy 和门窗网站的当前状态，然后我们一起继续。
 
 或者直接粘贴 HANDOFF.md 内容。
 
