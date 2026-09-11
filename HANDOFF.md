@@ -63,6 +63,7 @@ C:\Users\83729\Documents\New project AI文件夹\
 │   ├── index.html           # 首页（含一体式储能板块）
 │   ├── products.html        # 便携式产品页（39 款）
 │   ├── solar-solutions.html # 别墅/商业/离网/混网一体式储能页
+│   ├── ru\                 # 俄语静态页面（首页/产品/储能/批发/联系）
 │   ├── checkout.html        # 结算页（USDT 收款）
 │   ├── css\style.css        # 全部样式
 │   ├── js\tracking.js       # GA4 转化追踪
@@ -124,6 +125,7 @@ cd "C:\Users\83729\Documents\New project AI文件夹"
 ### 已完成
 - ✅ SunVolt 主页修复全屏布局（错误 `tion>` 已改回 `</section>`）
 - ✅ 2026-09-12 完成流量优化：www/旧域名 301、pages.dev noindex、GA4 线索和滚动追踪 v3、批发页和一体式储能页 SEO/内链增强
+- ✅ 2026-09-12 新增俄语第一版：`/ru/`、`/ru/products`、`/ru/solar-solutions`、`/ru/wholesale`、`/ru/contact`，含语言切换和 hreflang
 - ✅ 第二条产品线 `solar-solutions` 已上线：Villa / Commercial / Off-Grid / Hybrid
 - ✅ 逆变器 + 蓄电池图片已加入主页和 Solar Solutions 页（`images/ess-inverter.jpg`、`images/ess-battery.jpg`）
 - ✅ 全站导航、首页、产品页、sitemap 已加一体式储能入口
@@ -146,6 +148,7 @@ cd "C:\Users\83729\Documents\New project AI文件夹"
 - ✅ 修复 5 篇旧博客 JSON-LD headline 复制错误 + blog 列表页漏卡问题
 
 ### 待办
+- ⏳ 多语言第二阶段：阿拉伯语 `/ar/`（RTL）和更多俄语内容
 - ⏳ 俄罗斯市场后续：做俄语版页面 + Yandex 验证 + 俄语关键词
 - ⏳ Meta Pixel（等用户创建 FB Business 账号后提供 15 位 Pixel ID）
 - ⏳ Google Ads 转化代码（如果用户要投 Google Ads）
