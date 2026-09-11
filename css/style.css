@@ -375,6 +375,15 @@ a { color:inherit; text-decoration:none; }
   .counter-row { grid-template-columns:1fr 1fr; }
 }
 
+/* Arabic RTL support */
+[dir="rtl"] body { direction:rtl; text-align:right; }
+[dir="rtl"] .nav a::after { left:auto; right:0; }
+[dir="rtl"] .hero p { margin-right:0; margin-left:auto; }
+[dir="rtl"] .footer p, [dir="rtl"] .footer a { text-align:right; }
+[dir="rtl"] .hero-actions, [dir="rtl"] .trust-inner { flex-direction:row; }
+[dir="rtl"] .section-title, [dir="rtl"] .sh, [dir="rtl"] .cta-section, [dir="rtl"] .cta { text-align:center; }
+[dir="rtl"] .al, [dir="rtl"] .about-list, [dir="rtl"] .pc-specs { padding-right:24px; padding-left:0; }
+
 
 
 
