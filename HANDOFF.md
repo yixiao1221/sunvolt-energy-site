@@ -131,6 +131,7 @@ cd "C:\Users\83729\Documents\New project AI文件夹"
 - ✅ 2026-09-12 新增阿拉伯语第一版：`/ar/` 五个核心页面，包含 RTL 布局、EN/RU/AR 切换和 hreflang
 - ✅ 2026-09-12 新增法语第一版：`/fr/` 五个核心页面，语言切换统一为 EN / RU / AR / FR
 - ✅ 2026-09-12 新增地区文章：尼日利亚商业储能、俄罗斯家庭/别墅储能、沙特别墅储能、西非商业储能
+- ✅ 2026-09-12 新增便携式电源地区文章：尼日利亚、俄罗斯、沙特、西非
 - ✅ 第二条产品线 `solar-solutions` 已上线：Villa / Commercial / Off-Grid / Hybrid
 - ✅ 逆变器 + 蓄电池图片已加入主页和 Solar Solutions 页（`images/ess-inverter.jpg`、`images/ess-battery.jpg`）
 - ✅ 全站导航、首页、产品页、sitemap 已加一体式储能入口
