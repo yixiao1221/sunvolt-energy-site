@@ -123,6 +123,7 @@ cd "C:\Users\83729\Documents\New project AI文件夹"
 
 ### 已完成
 - ✅ SunVolt 主页修复全屏布局（错误 `tion>` 已改回 `</section>`）
+- ✅ 2026-09-12 完成流量优化：www/旧域名 301、pages.dev noindex、GA4 线索和滚动追踪 v3、批发页和一体式储能页 SEO/内链增强
 - ✅ 第二条产品线 `solar-solutions` 已上线：Villa / Commercial / Off-Grid / Hybrid
 - ✅ 逆变器 + 蓄电池图片已加入主页和 Solar Solutions 页（`images/ess-inverter.jpg`、`images/ess-battery.jpg`）
 - ✅ 全站导航、首页、产品页、sitemap 已加一体式储能入口
