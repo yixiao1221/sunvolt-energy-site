@@ -107,6 +107,18 @@ cd "C:\Users\83729\Documents\New project AI文件夹"
 3. 用 Wrangler 部署
 4. 验证线上
 
+### 新文章发布后提交搜索引擎
+IndexNow key: `3f9c7b2e84a14d6fa5c8e0b71d2f4936`
+Key file: `https://sunvoltglobal.com/3f9c7b2e84a14d6fa5c8e0b71d2f4936.txt`
+
+部署后运行：
+```powershell
+cd "C:\Users\83729\Documents\New project AI文件夹\sunvolt-energy"
+node tools\submit_indexnow.js
+```
+
+脚本会读取 `sitemap.xml`，把全部 URL 提交给 IndexNow、Bing 和 Yandex。
+
 ---
 
 ## 5. 重要历史经验（踩过的坑）
