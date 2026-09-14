@@ -1,3 +1,7 @@
 User-agent: *
 Allow: /
 Sitemap: https://sunvoltglobal.com/sitemap.xml
+
+User-agent: Yandex
+Allow: /
+Sitemap: https://sunvoltglobal.com/sitemap.xml
