@@ -20,6 +20,22 @@ SunVolt 是主打产品：39 款便携式电源（300W-1100W）、太阳能板�
 - 别墅 / 商业 / 离网 / 混网一体式太阳能储能：`solar-solutions.html`
 - 首页已经放了“Integrated Solar Storage”入口和逆变器/蓄电池图。
 
+**多语言与市场结构**（2026-09 完成）
+
+| 范围 | 路径 | 说明 |
+|------|------|------|
+| 英文主站 | `/` | 全球总站，承接自然搜索和品牌 |
+| 国家落地页 | `/ng`、`/sa` | 尼日利亚、沙特，含本地化定价与物流说明 |
+| 俄语 | `/ru/` | 5 个核心页 + 博客中心 + 2 篇文章 |
+| 阿拉伯语 | `/ar/` | RTL 布局，同上 |
+| 法语 | `/fr/` | 同上 |
+| B 端批发 | `/wholesale` | 全球批发主入口，MOQ 20 |
+
+**定价策略**：B 端报 EXW/FOB；C 端按国家分层，零售价包含运费并按当地物流成本调整。
+
+**增长渠道**：FB 投放当前月预算 ¥3,000-4,000，加人成本 ¥30-60，成交率 5-7%。
+下一步重点是转向 B 端人群、提高客单价，而不是单纯加大预算。
+
 ---
 
 ## 2. 关键账号与凭证
@@ -68,15 +84,25 @@ C:\Users\83729\Documents\New project AI文件夹\
 │   ├── index.html           # 首页（含一体式储能板块）
 │   ├── products.html        # 便携式产品页（39 款）
 │   ├── solar-solutions.html # 别墅/商业/离网/混网一体式储能页
-│   ├── ru\                 # 俄语静态页面（首页/产品/储能/批发/联系）
-│   ├── ar\                 # 阿拉伯语静态页面（RTL，首页/产品/储能/批发/联系）
-│   ├── fr\                 # 法语静态页面（首页/产品/储能/批发/联系）
+│   ├── ng.html / sa.html    # 尼日利亚 / 沙特国家落地页（含本地化定价）
+│   ├── blog-*.html          # 英文博客文章
+│   ├── ru\                  # 俄语：5 个核心页 + blog.html + 2 篇俄语文章
+│   ├── ar\                  # 阿拉伯语（RTL）：5 个核心页 + blog.html + 2 篇阿语文章
+│   ├── fr\                  # 法语：5 个核心页 + blog.html + 2 篇法语文章
 │   ├── checkout.html        # 结算页（USDT 收款）
-│   ├── css\style.css        # 全部样式
-│   ├── js\tracking.js       # GA4 转化追踪
+│   ├── css\style.css        # 全部样式（引用时带 ?v=NN 缓存版本号）
+│   ├── js\tracking.js       # GA4 + 跨平台转化事件
+│   ├── js\yandex-metrika.js # Yandex Metrika 事件上报
 │   ├── images\              # 压缩后图片（约 1.5MB）
+│   ├── videos\              # 工厂/产品视频（H.264 MP4）
+│   ├── tools\submit_indexnow.js   # 部署后提交 sitemap 给 IndexNow / Bing / Yandex
+│   ├── functions\_middleware.js   # 旧域名 301 跳转
+│   ├── DEPLOY.md            # 部署手册
 │   └── HANDOFF.md           # 本文件
 ```
+
+> 部署根目录就是 `sunvolt-energy\`，所以**不要在里面留临时文件或半成品**（会直接被发布到线上）。
+> 临时脚本一律放上一层目录。
 
 ---
 
@@ -128,20 +154,71 @@ node tools\submit_indexnow.js
 
 ## 5. 重要历史经验（踩过的坑）
 
-1. **按钮点击无效**：之前 `.btn-primary` 类导致按钮不可点击，最终用**内联样式 + `<a>` 标签**解决，不要用 CSS 类控制按钮跳转。
-2. **GA4 追踪 ID 错误**：最初用了 `G-0BJ4JKZPC7`（错误），正确是 `G-0YC6YQMSW4`。改 ID 时要在**全部 18 个 HTML 文件**里替换。
-3. **CSS 缓存**：改 CSS 后要更新 HTML 里的 `style.css?v=XX` 版本号，否则浏览器用旧缓存。
-4. **`.s-dark` 背景问题**：`.s-dark` 必须用深色背景（`#0a1428`），不能继承 `--bg`（浅灰）。
-5. **图片压缩**：已把 27.5MB 压缩到 1.5MB，PNG 无透明度的已转 JPG（HTML 引用已更新）。
-6. **不要用 Cloudflare Dashboard GitHub 集成**：之前多次断连，改用 Wrangler 后稳定。
-7. **自定义域名 SSL**：删除重加 Pages 项目后，自定义域名需要重新绑定，SSL 证书要等几分钟。
-8. **PowerShell 内联 Python 问题**：在 PowerShell 里运行含双引号的 Python 代码会被解析错误，必须把 Python 脚本写成 .py 文件再执行。
+### 5.1 按钮点击无效（2026-07-27 查明，原因和最初判断不同）
+
+**真正的根因**：首页 Hero 区的装饰元素 `.hero-bg`（`<div class="hero-bg">`）铺满整个页面，
+把所有按钮都盖在下面，物理点击到不了按钮。
+
+**怎么查出来的**：在浏览器 Console 用 `document.elementFromPoint(x, y)` 取按钮中心坐标上的元素，
+返回的是 `.hero-bg` 而不是按钮。这一步是决定性证据 —— 之前试过的所有改法
+（换 `<a>`、加 onclick、`window.location.replace`、改 `<form>`+`<button>`）全都没用，
+因为问题从来不在按钮本身。
+
+**修复**：给 `.hero-bg` 加 `pointer-events:none`。
+
+**教训**：
+- 页面上任何 `position:absolute` 或 `fixed` 的装饰层，都要加 `pointer-events:none`。
+- 遇到"按钮点不动"，先用 `elementFromPoint` 确认点击落在哪个元素上，不要盲改按钮写法。
+- 另一个参考现象：代码 `.click()` 能跳转、手动点击不能 → 基本可以确定是遮罩层拦截。
+
+### 5.2 脚本批量替换曾清空 19 个 HTML 文件（2026-08-16）
+
+用一行字符串替换批量处理 HTML 时写错，把 19 个文件全部清空。
+靠 Git 立即恢复，没有丢内容。
+
+**教训**：批量改文件前必须先 commit；替换脚本要先在单文件上试，确认无误再全量跑。
+
+### 5.3 其他技术坑
+
+1. **GA4 追踪 ID**：最初用了 `G-0BJ4JKZPC7`（错误），正确的是 `G-0YC6YQMSW4`。
+2. **CSS 缓存**：改 CSS 后必须同步更新 HTML 里的 `style.css?v=XX` 版本号，否则浏览器用旧缓存。
+3. **`.s-dark` 背景**：必须显式用深色背景，不能继承 `--bg`（浅灰），否则白字白底看不清。
+4. **深色区文字撞色**：`section-title h2` 是金底深蓝字，进了深色区容易被通用规则覆盖成"金底白字"；
+   白卡片里的 `h3`/`p` 也容易被覆盖成白字。改深色板块时要单独覆盖回来。
+5. **`.blog-body a` 颜色覆盖按钮**：文章里的链接颜色规则会把黄色按钮文字也染成黄色，黄底黄字看不见。
+   按钮文字要用更具体的选择器强制成深蓝 `#0F2140`。
+6. **不要用 Cloudflare Dashboard 的 GitHub 集成**：断连过多次，改用 Wrangler CLI 后稳定。
+7. **自定义域名 SSL**：删除并重建 Pages 项目后，自定义域名要重新绑定，证书要等几分钟。
+8. **PowerShell 内联 Python**：含引号的 Python 代码在 PowerShell 里会被解析错误，必须写成 `.py` 文件再执行。
+9. **Cloudflare API 需要全局代理**：本机不挂代理访问 `api.cloudflare.com` 会失败。
+10. **Rank Math 的 SEO meta 无法通过 REST API 写入**：官方限制。文章特色图可以用 API 设，
+    但 SEO title/description 只能在 WordPress 后台手填。
+
+### 5.4 对话被工具调用错误卡死（2026-09-15）
+
+**现象**：对话突然完全不能用了，发任何消息都在 0.3 秒内失败，
+报 `No tool output found for tool call ...`，而且**无法修复**。
+
+**原因**：一次性并行读取 6 张 390×5000 的超长截图，其中 4 张没有返回结果。
+对话历史是只读的，这段"发起了但没有结果"的记录会一直留在历史里，
+之后每一轮请求都会因为这段残缺记录被接口拒绝。
+
+**教训**：
+- 读图**一次最多 2 张**，看完再读下一批。
+- 截图单张高度控制在 2000px 以内，整页要分段截。
+- 不要一次并行发起 3 个以上的重型调用。
+- 一旦发现工具调用没返回结果，立刻停手，另开新对话，不要硬撑重试。
+
+### 5.5 关于欠费
+
+这个对话期间发生过**两次真实的 API 余额不足**（402 Payment Required）。
+充值后即可恢复。注意区分：402 是欠费，`systemError` 里的工具调用错误不是欠费，充值也救不回来。
 
 ---
 
-## 6. 当前状态（2026-09-10）
+## 6. 当前状态（2026-09-15）
 
-### 已完成
+### 已完成（主站与产品线）
 - ✅ SunVolt 主页修复全屏布局（错误 `tion>` 已改回 `</section>`）
 - ✅ 2026-09-12 完成流量优化：www/旧域名 301、pages.dev noindex、GA4 线索和滚动追踪 v3、批发页和一体式储能页 SEO/内链增强
 - ✅ 2026-09-12 新增俄语第一版：`/ru/`、`/ru/products`、`/ru/solar-solutions`、`/ru/wholesale`、`/ru/contact`，含语言切换和 hreflang
@@ -171,17 +248,60 @@ node tools\submit_indexnow.js
 - ✅ 新增 B2B 文章 `blog-import-power-stations-china`（已上线/进 sitemap）
 - ✅ 修复 5 篇旧博客 JSON-LD headline 复制错误 + blog 列表页漏卡问题
 
-### 待办
-- ⏳ 多语言后续：根据流量补充更多语言内容，目前已有 EN / RU / AR / FR
-- ⏳ 俄罗斯市场后续：做俄语版页面 + Yandex 验证 + 俄语关键词
-- ⏳ Meta Pixel（等用户创建 FB Business 账号后提供 15 位 Pixel ID）
-- ⏳ Google Ads 转化代码（如果用户要投 Google Ads）
-- ⏳ GA4 里把 whatsapp_click/form_submit 标记为关键事件（用户手动操作）
-- ⏳ Facebook 广告投放（用户计划投 FB）
-- ✅ GitHub 新 PAT 已配置并推送成功，本地与远程已同步（2026-08-13）
+### 2026-09-14 ~ 09-15 新增
+- ✅ Yandex Webmaster 完成验证（HTML 文件 + meta 标签双重），sitemap 已提交
+- ✅ Yandex Metrika 全站接入（Counter ID `112582253`），8 个俄语页面已提交重抓
+- ✅ Yandex 侧建立 7 个转化目标：`whatsapp_click`、`generate_lead`、`form_submit`、
+  `checkout_click`、`cta_click`、`contact_click`、`view_checkout`
+- ✅ IndexNow 自动提交脚本 `tools/submit_indexnow.js`（提交给 IndexNow / Bing / Yandex）
+- ✅ `robots.txt` 增加 Yandex 抓取与 sitemap 规则
+- ✅ 扩写 6 篇多语言博客到目标长度（尼日利亚 ×2、俄罗斯 ×2、沙特 ×2）：
+  英文/俄文 1000-1400 词，阿语 800-1100 词；每篇补了选型计算表、FAQ 结构化数据、
+  产品型号段落和产品内链
+- ✅ 修复 RTL / 西里尔文页面署名行 "SunVolt Energy" 中间断行（改用 `&nbsp;`）
+- ✅ 门窗站 `/shop/` 空壳修复：根因是页面用 SureCart 列表、产品却建在 WooCommerce，
+  已改为 WooCommerce 产品列表
+- ✅ 门窗站 15 篇文章补真实特色图（媒体库工厂/装柜/产品图）
+- ✅ 门窗站 3 篇最薄文章重写（13 词 → 662 词，43 词 → 664 词，19 词 → 434 词）
+- ✅ 全屏视频背景方案已回退（观感差），改为独立的 16:9 视频展示区
+- ✅ 工厂视频压缩：96MB → 14MB，转为 H.264 MP4
+
+### 已完成（历史）
+- ✅ GitHub PAT 已配置并推送成功，本地与远程已同步（2026-08-13）
 - ✅ 门窗站 SEO 插件核查：仅 Rank Math 激活（AIOSEO、SureRank 均为停用），无冲突
-- ✅ 门窗站 `/shop/` 软 404 已修复（2026-08-13）：站点可见性改 Live，商店页面从已删除的 ID 15 改到现有 Shop 页 3314
-- ⏳ 门窗站 PixelYourSite 已装但未配置 Pixel ID（等 FB Business 账号）
+- ✅ 门窗站 `/shop/` 软 404 修复（2026-08-13）：站点可见性改 Live，Shop 页指到现有页面
+- ✅ 域名迁移：`sunvolt.aluferdoors.com` → `sunvoltglobal.com`，
+  全站 canonical/OG/sitemap 已切换，旧域名 301 跳转已做
+- ✅ Search Console 新域名已验证，sitemap 已提交
+
+### 待办
+
+**需要用户手动操作**
+- ⏳ Search Console：每天选 3-5 个页面点 `Request indexing`，优先这 7 个：
+  `/applications`、`/blog`、`/blog-import-power-stations-china`、
+  `/blog-power-station-vs-generator`、`/blog-sell-portable-power-stations`、
+  `/contact`、`/shipping`
+- ⏳ GA4 里把 `whatsapp_click`、`form_submit` 标记为关键事件
+- ⏳ 门窗站 RankMath 的 SEO title/description 需后台手填（API 写不进去），
+  或装一个能写 meta 的插件后由 Codex 批量设置
+- ⏳ Meta Pixel（等 FB Business 账号，需要 15 位 Pixel ID）
+
+**等外部结果**
+- ⏳ Yandex 抓取队列结果复查（提交后 1-3 天）
+- ⏳ Google / Yandex 实际收录数量复查（1-2 周）
+- ⏳ sitemap 在 Yandex 的处理状态（1-2 周，属正常速度）
+
+**可以继续推进**
+- ⏳ 门窗站还有约 10 篇 150-300 词的薄文章待扩写
+- ⏳ 门窗站有一篇中文 URL 编码 slug 的文章待处理（改英文 slug + 301）
+- ⏳ 观察 `/ru/`、`/ar/`、`/fr/` 的真实自然流量，按数据补内容
+- ⏳ 外链建设：B2B 平台、行业目录、LinkedIn / Facebook / YouTube
+- ⏳ Google Ads 转化代码（如果要投 Google Ads）
+
+**暂缓（已评估过，暂不做）**
+- 🚫 不做新网站。策略是「一个主站 + 国家子页」，即 `sunvoltglobal.com/ng`、`/sa` 这种结构
+- 🚫 暂不买本地域名（如 `sunvolt.ng`），等某个市场真正做起来再说
+- 🚫 俄罗斯市场需要先解决 EAC 认证和跨境结算，再考虑规模投入
 
 ---
 
