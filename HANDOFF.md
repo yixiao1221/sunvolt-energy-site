@@ -111,18 +111,35 @@ C:\Users\83729\Documents\New project AI文件夹\
 > 不要用 Cloudflare Dashboard 的 GitHub 集成（之前坏过多次）。
 > 使用 Wrangler CLI 直接部署。
 
+> ⚠️ **必须在 `sunvolt-energy` 目录内部执行部署命令。**
+> Wrangler 从「当前工作目录」查找 `functions/` 文件夹；在上层目录运行会导致
+> Pages Functions 不参与编译，线上静默丢失「旧域名 301」和「内部文档屏蔽」两项功能。
+> 2026-09-15 发现这个坑 —— 之前记录的 301 其实一直没生效。
+
 ```powershell
-cd "C:\Users\83729\Documents\New project AI文件夹"
+cd "C:\Users\83729\Documents\New project AI文件夹\sunvolt-energy"
 
 # 设置环境变量
 $env:CLOUDFLARE_API_TOKEN = "你的CloudflareToken"
 $env:CLOUDFLARE_ACCOUNT_ID = "12a9f1a1cecb9c09810c089fc8277d76"
 
-# 部署
+# 部署（注意目录参数是 "."）
 & "C:\Users\83729\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe" `
-  "node_modules\wrangler\bin\wrangler.js" `
-  pages deploy "sunvolt-energy" --project-name sunvolt-energy --branch main
+  "..\node_modules\wrangler\bin\wrangler.js" `
+  pages deploy "." --project-name sunvolt-energy --branch main
 ```
+
+**部署成功的标志**：输出里同时出现
+`✨ Compiled Worker successfully` 和 `✨ Uploading Functions bundle`。
+只有静态文件上传、没有 Functions bundle，就说明中间件没进去。
+
+**部署后自检三项**：
+
+| 检查 | 预期 |
+|------|------|
+| `https://sunvoltglobal.com/` | 200 |
+| `https://sunvolt.aluferdoors.com/` | 301（跳转到主域名并保留路径）|
+| `https://sunvoltglobal.com/HANDOFF.md` | 410（内部文档不可公开访问）|
 
 如果 `node_modules\wrangler` 不存在，先安装：
 ```powershell
@@ -193,6 +210,11 @@ node tools\submit_indexnow.js
 9. **Cloudflare API 需要全局代理**：本机不挂代理访问 `api.cloudflare.com` 会失败。
 10. **Rank Math 的 SEO meta 无法通过 REST API 写入**：官方限制。文章特色图可以用 API 设，
     但 SEO title/description 只能在 WordPress 后台手填。
+11. **Wrangler 部署必须 cd 进项目目录**：`functions/` 是按「当前工作目录」查找的。
+    从上层目录部署时，中间件不会编译进去，而且**不会报错**——线上静默失效。
+    检查方法：部署输出里有没有 `Uploading Functions bundle`。
+12. **Cloudflare Pages 里静态文件优先级高于 `_redirects`**：已有的文件无法用 `_redirects` 拦掉，
+    必须用 `functions/_middleware.js`。`.assetsignore` 是 Workers Assets 的功能，Pages 不认。
 
 ### 5.4 对话被工具调用错误卡死（2026-09-15）
 

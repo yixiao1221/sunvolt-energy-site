@@ -39,15 +39,28 @@ npx --version
 ```
 
 ### 4. 部署网站
-```
+
+> **必须在 `sunvolt-energy` 目录内部执行。**
+> Wrangler 是从「当前工作目录」找 `functions/` 文件夹的。
+> 如果在上层目录运行，Pages Functions（旧域名 301、内部文档屏蔽）不会被编译进部署，
+> 线上会静默丢失这两项功能 —— 2026-09-15 踩过这个坑。
+
+```powershell
+cd sunvolt-energy
+
 # 设置 Cloudflare API Token（每次部署都需要）
 $env:CLOUDFLARE_API_TOKEN = "你保存的API Token"
+$env:CLOUDFLARE_ACCOUNT_ID = "12a9f1a1cecb9c09810c089fc8277d76"
 
-# 部署到 Cloudflare Pages
+# 部署到 Cloudflare Pages（注意是 "."，不是 "sunvolt-energy"）
 npx wrangler pages deploy . --project-name sunvolt-energy --branch main
 ```
 
 > 第一次运行 `npx wrangler` 会自动安装 wrangler，稍等即可。
+>
+> 部署成功的标志：输出里出现
+> `✨ Compiled Worker successfully` 和 `✨ Uploading Functions bundle`。
+> 如果只有 `Uploading ... files` 而没有 Functions bundle，说明中间件没进去。
 
 ### 5. 验证
 打开浏览器访问 `https://sunvolt-energy.pages.dev` 确认网站正常。
@@ -63,10 +76,27 @@ git add -A
 git commit -m "描述你的修改"
 git push origin main
 
-# 2. 部署
+# 2. 部署（必须在 sunvolt-energy 目录内执行）
+cd sunvolt-energy
 $env:CLOUDFLARE_API_TOKEN = "你的API Token"
+$env:CLOUDFLARE_ACCOUNT_ID = "12a9f1a1cecb9c09810c089fc8277d76"
 npx wrangler pages deploy . --project-name sunvolt-energy --branch main
 ```
+
+### 部署后必须验证
+
+```powershell
+# 主站正常
+curl.exe -s -o NUL -w "%{http_code}`n" https://sunvoltglobal.com/
+
+# 旧域名 301（应返回 301）
+curl.exe -s -o NUL -w "%{http_code}`n" https://sunvolt.aluferdoors.com/
+
+# 内部文档不可访问（应返回 410）
+curl.exe -s -o NUL -w "%{http_code}`n" https://sunvoltglobal.com/HANDOFF.md
+```
+
+三项都符合预期，才算部署成功。
 
 ### 添加到 Codex 对话
 在新对话中粘贴这段提示，Codex 就能直接接手：
