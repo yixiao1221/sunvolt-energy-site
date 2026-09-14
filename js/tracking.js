@@ -8,6 +8,12 @@
     }
   }
 
+  function sendYandexGoal(name, params) {
+    if (typeof window.ym === 'function' && window.YANDEX_METRIKA_ID) {
+      window.ym(window.YANDEX_METRIKA_ID, 'reachGoal', name, params || {});
+    }
+  }
+
   function linkParams(el, href, text) {
     return {
       event_category: 'engagement',
@@ -33,12 +39,15 @@
         method: 'whatsapp',
         page_path: window.location.pathname + window.location.search
       });
+      sendYandexGoal('whatsapp_click', { link_url: href, link_text: text });
+      sendYandexGoal('generate_lead', { method: 'whatsapp' });
       return;
     }
 
     // Phone and email are also lead actions for B2B visitors.
     if (href.indexOf('tel:') === 0 || href.indexOf('mailto:') === 0) {
       send('contact_click', linkParams(el, href, text || href));
+      sendYandexGoal('contact_click', { link_url: href, link_text: text });
       return;
     }
 
@@ -49,6 +58,7 @@
         event_label: text || href,
         page_path: window.location.pathname + window.location.search
       });
+      sendYandexGoal('checkout_click', { link_url: href, link_text: text });
     }
 
     // CTA / button click, including inline-styled links used on the site.
@@ -57,6 +67,7 @@
     if (isInlineCta || el.closest('.btn') || el.classList.contains('btn-primary') ||
         el.classList.contains('nav-cta') || el.closest('form')) {
       send('cta_click', linkParams(el, href, text || 'CTA'));
+      sendYandexGoal('cta_click', { link_url: href, link_text: text });
     }
   });
 
@@ -67,6 +78,7 @@
       event_label: form.getAttribute('id') || 'form',
       page_path: window.location.pathname + window.location.search
     });
+    sendYandexGoal('form_submit', { form_id: form.getAttribute('id') || 'form' });
   });
 
   if (window.location.pathname.indexOf('checkout') !== -1) {
@@ -74,6 +86,7 @@
       event_category: 'conversion',
       page_path: window.location.pathname + window.location.search
     });
+    sendYandexGoal('view_checkout');
   }
 
   window.addEventListener('scroll', function () {

@@ -44,6 +44,11 @@ SunVolt 是主打产品：39 款便携式电源（300W-1100W）、太阳能板�
 - 服务账号 JSON: `C:\Users\83729\Downloads\gentle-post-477904-u0-07ff6805bc64.json`
 - 数据 API 用法: 用服务账号 JWT → runReport 查询属性 542483561
 
+### Yandex Metrika
+- Counter ID: `112582253`
+- 全站已接入 `js/yandex-metrika.js`
+- 已同步事件：`whatsapp_click`、`generate_lead`、`form_submit`、`checkout_click`、`cta_click`、`contact_click`
+
 ### 收款
 - USDT (TRC-20): `TMhc4HFFpXCNNSSVfbYYPjyHNH19e4UmQ2`（在 checkout.html）
 - PayPal / 银行转账：见 checkout.html
