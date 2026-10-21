@@ -7,6 +7,7 @@
 <meta name="description" content="Integrated solar storage solutions for villas, commercial projects and off-grid sites. Custom system design, hybrid inverters and LiFePO4 batteries.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'><rect width='36' height='36' rx='8' fill='%23C9A84C'/><text x='18' y='26' text-anchor='middle' font-size='22' font-weight='800' fill='%230F2140'>S</text></svg>">
 <link rel=stylesheet href=css/style.css?v=16>
+<link rel="stylesheet" href="css/solar-calculator.css?v=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,6 +25,7 @@
 <meta property="og:image:alt" content="SunVolt Energy integrated solar energy storage systems">
 <meta property="og:site_name" content="SunVolt Energy">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Integrated Solar Storage Solutions","provider":{"@type":"Organization","name":"SunVolt Energy","url":"https://sunvoltglobal.com/"},"areaServed":"Worldwide","description":"Integrated solar storage solutions and custom system design using solar panels, hybrid inverters and LiFePO4 battery storage for villas, commercial projects and off-grid sites."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Solar and Battery System Sizing Calculator","url":"https://sunvoltglobal.com/solar-solutions#sizing-calculator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"A preliminary calculator for estimating solar PV, hybrid inverter and battery capacity from daily energy use, peak load, required autonomy and peak sun hours.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"SunVolt Energy","url":"https://sunvoltglobal.com/"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an integrated solar storage solution?","acceptedAnswer":{"@type":"Answer","text":"An integrated solar storage solution combines solar panels, a hybrid inverter, LiFePO4 batteries, monitoring and project documentation into one system. It coordinates solar generation, battery storage, grid power and generator input around the daily load of a home, business or off-grid project."}},{"@type":"Question","name":"What size integrated solar storage system do I need?","acceptedAnswer":{"@type":"Answer","text":"System size depends on your daily energy consumption, peak load, roof area, and backup hours. Villa systems commonly start around 5-20 kWh, while commercial projects can scale from 30 kWh to 1 MWh or more."}},{"@type":"Question","name":"Can the system work off-grid or with a generator?","acceptedAnswer":{"@type":"Answer","text":"Yes. The hybrid inverter can coordinate solar panels, battery storage, grid power, and a generator. It can operate as a grid-tied hybrid system or as an off-grid system where no utility power is available."}},{"@type":"Question","name":"Do you provide system design and technical support?","acceptedAnswer":{"@type":"Answer","text":"Yes. Send us your load list, daily usage, installation country, and roof or equipment-room photos. We provide the system design, equipment list, wiring guidance, and commissioning support."}},{"@type":"Question","name":"What equipment is included in a complete system?","acceptedAnswer":{"@type":"Answer","text":"A typical package includes solar panels, a hybrid inverter, LiFePO4 battery modules, mounting or racking accessories, monitoring, and installation documentation. Final contents depend on the project design."}},{"@type":"Question","name":"How long is delivery for an integrated solar storage system?","acceptedAnswer":{"@type":"Answer","text":"Standard kits are usually ready 25-35 days after deposit and design approval. Larger commercial systems are scheduled per project."}},{"@type":"Question","name":"What certifications are available?","acceptedAnswer":{"@type":"Answer","text":"CE documentation and UN38.3 transport reports for batteries are available on request. Project-specific requirements are confirmed before the order."}},{"@type":"Question","name":"Can you supply OEM branding?","acceptedAnswer":{"@type":"Answer","text":"Yes. Product labels, packaging, manuals and monitoring branding can follow your company name for container-level orders."}}]}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0YC6YQMSW4"></script>
 <script>
@@ -254,6 +256,55 @@ gtag('config', 'G-0YC6YQMSW4');
 </div>
 </section>
 
+<section class="section section-soft" id="sizing-calculator">
+<div class="container">
+<div class="section-title">
+<div class="section-tag">System Sizing Tool</div>
+<h2>Estimate Your Solar and Battery Capacity</h2>
+</div>
+<p style="max-width:760px;margin:-22px auto 32px;text-align:center;color:var(--text-light);">Enter your daily energy use and peak load to generate a preliminary equipment size. You can send the result directly to our team for an engineering review.</p>
+<form class="calculator-shell" id="sizing-calculator">
+<div class="calculator-form">
+<div class="calculator-grid">
+<div class="calculator-field">
+<label for="calc-daily-energy">Daily energy consumption (kWh/day)</label>
+<input id="calc-daily-energy" name="daily_energy" type="number" min="1" max="5000" step="0.1" value="20" inputmode="decimal" required>
+</div>
+<div class="calculator-field">
+<label for="calc-peak-load">Peak load (kW)</label>
+<input id="calc-peak-load" name="peak_load" type="number" min="0.5" max="1000" step="0.1" value="6" inputmode="decimal" required>
+</div>
+<div class="calculator-field">
+<label for="calc-autonomy">Required autonomy (days)</label>
+<input id="calc-autonomy" name="autonomy_days" type="number" min="0.5" max="7" step="0.5" value="1" inputmode="decimal" required>
+</div>
+<div class="calculator-field">
+<label for="calc-sun-hours">Average peak sun hours (h/day)</label>
+<input id="calc-sun-hours" name="peak_sun_hours" type="number" min="2" max="8" step="0.1" value="4.5" inputmode="decimal" required>
+</div>
+<div class="calculator-field calculator-field-wide">
+<label for="calc-country">Project country (optional)</label>
+<input id="calc-country" name="project_country" type="text" maxlength="80" autocomplete="country-name" placeholder="Example: Kenya">
+</div>
+</div>
+<button class="btn btn-primary calculator-submit" type="submit">Calculate Preliminary Size</button>
+<p class="calculator-note">The estimate uses a 0.75 system-efficiency factor for PV, 90% usable battery capacity and a 25% inverter load margin. Final selection also requires a full load schedule, surge currents, site conditions, utility rules and certification requirements.</p>
+</div>
+<div class="calculator-results" id="calculator-results" tabindex="-1" aria-live="polite">
+<h3>Preliminary System Estimate</h3>
+<p>Indicative capacity only. Equipment voltage, MPPT range, battery C-rate and generator controls are confirmed during design.</p>
+<div class="calculator-metrics">
+<div class="calculator-metric"><span>PV array</span><strong id="calc-pv-result">-</strong></div>
+<div class="calculator-metric"><span>Hybrid inverter</span><strong id="calc-inverter-result">-</strong></div>
+<div class="calculator-metric"><span>Battery capacity</span><strong id="calc-battery-result">-</strong></div>
+</div>
+<p class="calculator-result-note">For high-surge motors, continuous commercial loads or multi-day autonomy, the final inverter and battery size may increase.</p>
+<a class="btn btn-primary calculator-whatsapp" id="calc-whatsapp" href="https://wa.me/8613025124521?text=Integrated%20Solar%20Storage%20Sizing%20Review" target="_blank" rel="noopener">Review This Estimate on WhatsApp</a>
+</div>
+</form>
+</div>
+</section>
+
 <section class="section section-soft" id="procurement-checklist">
 <div class="container">
 <div class="section-title">
@@ -317,6 +368,7 @@ gtag('config', 'G-0YC6YQMSW4');
 
 <a href="https://wa.me/8613025124521" class="wa-fab" target="_blank"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></a>
 <script>window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>20);});</script>
+<script src="js/solar-calculator.js?v=1"></script>
 <script src="js/tracking.js?v=4"></script>
 </body>
 </html>
