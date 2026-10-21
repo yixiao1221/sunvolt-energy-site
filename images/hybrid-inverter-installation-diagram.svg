@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-labelledby="title desc">
+  <title id="title">Hybrid solar inverter and battery system installation topology</title>
+  <desc id="desc">Diagram showing PV array, hybrid inverter, battery, grid and main panel, backup loads, optional generator and monitoring connections.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0F2140"/>
+    </marker>
+    <marker id="arrowGold" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#C9A84C"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="560" fill="#F8F7F4"/>
+  <text x="500" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#0F2140">Hybrid Solar Storage Installation Topology</text>
+  <text x="500" y="64" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#4A5568">Final circuit design must follow the inverter manual, battery manual, local electrical code and utility approval</text>
+
+  <rect x="65" y="105" width="205" height="86" rx="8" fill="#FFFFFF" stroke="#C9A84C" stroke-width="2"/>
+  <text x="167" y="138" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0F2140">PV Array</text>
+  <text x="167" y="163" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4A5568">Strings, DC isolator, SPD</text>
+
+  <rect x="395" y="190" width="220" height="160" rx="10" fill="#0F2140" stroke="#0F2140" stroke-width="2"/>
+  <text x="505" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">Hybrid Inverter</text>
+  <text x="505" y="263" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#F1D77B">MPPT + battery converter</text>
+  <text x="505" y="284" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#F1D77B">grid and backup control</text>
+  <text x="505" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#F1D77B">metering and protection logic</text>
+
+  <rect x="410" y="420" width="190" height="75" rx="8" fill="#FFFFFF" stroke="#C9A84C" stroke-width="2"/>
+  <text x="505" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0F2140">LiFePO4 Battery</text>
+  <text x="505" y="474" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4A5568">BMS, breaker, communication</text>
+
+  <rect x="65" y="230" width="205" height="86" rx="8" fill="#FFFFFF" stroke="#0F2140" stroke-width="2"/>
+  <text x="167" y="263" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0F2140">Grid and Main Panel</text>
+  <text x="167" y="288" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4A5568">AC input, meter and protection</text>
+
+  <rect x="735" y="230" width="205" height="86" rx="8" fill="#FFFFFF" stroke="#0F2140" stroke-width="2"/>
+  <text x="837" y="263" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0F2140">Backup Loads</text>
+  <text x="837" y="288" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4A5568">Essential-loads panel only</text>
+
+  <rect x="735" y="105" width="205" height="86" rx="8" fill="#FFFFFF" stroke="#4A5568" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="837" y="138" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0F2140">Monitoring</text>
+  <text x="837" y="163" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4A5568">Wi-Fi, LAN or RS485</text>
+
+  <rect x="65" y="420" width="205" height="75" rx="8" fill="#FFFFFF" stroke="#4A5568" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="167" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0F2140">Generator</text>
+  <text x="167" y="474" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4A5568">Optional, if inverter supports it</text>
+
+  <line x1="270" y1="148" x2="395" y2="235" stroke="#C9A84C" stroke-width="3" marker-end="url(#arrowGold)"/>
+  <text x="322" y="179" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#8A6A1D">DC</text>
+
+  <line x1="270" y1="273" x2="395" y2="273" stroke="#0F2140" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="326" y="259" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#0F2140">AC IN</text>
+
+  <line x1="615" y1="273" x2="735" y2="273" stroke="#0F2140" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="650" y="259" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#0F2140">AC OUT</text>
+
+  <line x1="505" y1="350" x2="505" y2="420" stroke="#C9A84C" stroke-width="3" marker-end="url(#arrowGold)"/>
+  <text x="521" y="391" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#8A6A1D">DC and data</text>
+
+  <line x1="615" y1="235" x2="735" y2="148" stroke="#4A5568" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+  <line x1="270" y1="457" x2="395" y2="312" stroke="#4A5568" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+
+  <rect x="65" y="515" width="875" height="28" rx="6" fill="#FFF7E6" stroke="#E6C46B"/>
+  <text x="502" y="534" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#5C4300">Do not assume neutral-ground bonding, generator transfer or battery polarity. Confirm each item against the approved design.</text>
+</svg>
