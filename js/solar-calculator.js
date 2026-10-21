@@ -13,6 +13,9 @@
   var inverterOutput = document.getElementById('calc-inverter-result');
   var batteryOutput = document.getElementById('calc-battery-result');
   var whatsappLink = document.getElementById('calc-whatsapp');
+  var emailLink = document.getElementById('calc-email');
+  var genericWhatsApp = 'https://wa.me/8613025124521?text=Integrated%20Solar%20Storage%20Sizing%20Review';
+  var genericEmail = 'mailto:yixiao1221@outlook.com?subject=' + encodeURIComponent('Integrated solar storage project review');
 
   function numberValue(input, minimum, maximum) {
     var value = Number(input.value);
@@ -53,7 +56,8 @@
       pvOutput.textContent = '-';
       inverterOutput.textContent = '-';
       batteryOutput.textContent = '-';
-      whatsappLink.href = 'https://wa.me/8613025124521?text=Integrated%20Solar%20Storage%20Sizing%20Review';
+      whatsappLink.href = genericWhatsApp;
+      emailLink.href = genericEmail;
       return;
     }
 
@@ -79,6 +83,9 @@
     if (country) message.push('Project country: ' + country);
     message.push('Please confirm the final system design.');
     whatsappLink.href = 'https://wa.me/8613025124521?text=' + encodeURIComponent(message.join('\n'));
+    emailLink.href = 'mailto:yixiao1221@outlook.com?subject='
+      + encodeURIComponent('Integrated solar storage sizing review')
+      + '&body=' + encodeURIComponent(message.join('\r\n'));
 
     if (track) trackCalculation({ daily: daily, peak: peak, autonomy: autonomy, sun: sun });
   }
