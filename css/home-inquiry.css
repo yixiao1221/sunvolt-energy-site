@@ -23,7 +23,14 @@
   color: var(--primary);
   font-size: 23px;
   line-height: 1.2;
-  margin-bottom: 19px;
+  margin-bottom: 8px;
+}
+
+.hero-quote-intro {
+  color: var(--text-muted) !important;
+  font-size: 12px !important;
+  line-height: 1.55 !important;
+  margin: 0 0 16px !important;
 }
 
 .hero-quote-field {
@@ -98,6 +105,88 @@
   color: var(--primary);
 }
 
+.hero-quote-assurance {
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  justify-content: center;
+  margin-top: 15px;
+  padding-top: 13px;
+}
+
+.hero-quote-assurance span {
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.hero-quote-assurance span::before {
+  color: var(--accent-hover);
+  content: "\2713";
+  font-weight: 800;
+  margin-right: 5px;
+}
+
+.inquiry-lower-risk {
+  background: #f3f4f6;
+  border-bottom: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+  padding: 38px 0;
+}
+
+.inquiry-lower-risk-inner {
+  align-items: center;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.inquiry-lower-risk-kicker {
+  color: var(--accent-hover);
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.inquiry-lower-risk h2 {
+  color: var(--primary);
+  font-size: 25px;
+  line-height: 1.2;
+  margin-bottom: 7px;
+}
+
+.inquiry-lower-risk p {
+  color: var(--text-light);
+  font-size: 13px;
+  line-height: 1.65;
+  max-width: 700px;
+}
+
+.inquiry-lower-risk-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.inquiry-lower-risk-actions .btn {
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.inquiry-lower-risk-outline {
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--primary);
+}
+
+.inquiry-lower-risk-outline:hover {
+  border-color: var(--accent);
+}
+
 @media (max-width: 992px) {
   .hero-visual.hero-inquiry-wrap {
     order: 0;
@@ -105,6 +194,10 @@
 
   .hero-quote-card {
     margin: 0 auto;
+  }
+
+  .inquiry-lower-risk-inner {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -115,5 +208,9 @@
 
   .hero-quote-row {
     grid-template-columns: 1fr;
+  }
+
+  .inquiry-lower-risk-actions {
+    display: grid;
   }
 }
