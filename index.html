@@ -8,6 +8,7 @@
 <meta name="description" content="Factory-direct portable power stations and integrated solar storage systems for villas, commercial, off-grid, and hybrid projects. B2B wholesale and OEM/ODM.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'><rect width='36' height='36' rx='8' fill='%23C9A84C'/><text x='18' y='26' text-anchor='middle' font-size='22' font-weight='800' fill='%230F2140'>S</text></svg>">
 <link rel=stylesheet href=css/style.css?v=16>
+<link rel="stylesheet" href="css/home-inquiry.css?v=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -83,11 +84,36 @@ gtag('config', 'G-0YC6YQMSW4');
 <div class="hs-item"><div class="hs-num">99%</div><div class="hs-lbl">On-Time Delivery</div></div>
 </div>
 </div>
-<div class="hero-visual">
-<div class="hv-device">
-<div class="hv-inner"><div class="hv-bolt">&#9889;</div></div>
-<div class="hv-ring"></div>
-<div class="hv-ring-2"></div>
+<div class="hero-visual hero-inquiry-wrap">
+<div class="hero-quote-card">
+<span class="hero-quote-kicker">Fast B2B Quote</span>
+<h2>Tell us what you need</h2>
+<form id="homeQuoteForm">
+<div class="hero-quote-field">
+<label for="homeQuoteProduct">Product</label>
+<select id="homeQuoteProduct" name="product" required>
+<option value="">Select product</option>
+<option>Portable power station</option>
+<option>Foldable solar panel</option>
+<option>Integrated solar storage system</option>
+<option>Hybrid inverter and battery</option>
+<option>OEM / private label</option>
+<option>Other energy product</option>
+</select>
+</div>
+<div class="hero-quote-row">
+<div class="hero-quote-field">
+<label for="homeQuoteCountry">Country</label>
+<input id="homeQuoteCountry" name="country" type="text" autocomplete="country-name" maxlength="80" placeholder="Delivery country" required>
+</div>
+<div class="hero-quote-field">
+<label for="homeQuoteQuantity">Quantity</label>
+<input id="homeQuoteQuantity" name="quantity" type="number" inputmode="numeric" min="1" max="100000" placeholder="Units" required>
+</div>
+</div>
+<button class="hero-quote-submit" type="submit">Continue on WhatsApp</button>
+<a class="hero-quote-email" id="homeQuoteEmail" href="mailto:yixiao1221@outlook.com?subject=SunVolt%20quote%20request">Email instead</a>
+</form>
 </div>
 </div>
 </div>
@@ -434,6 +460,7 @@ document.querySelectorAll('video.factory-autoplay').forEach(function(video){
 });
 </script>
 </div>
+<script src="js/home-inquiry.js?v=1"></script>
 <script src="js/tracking.js?v=4"></script>
 </body>
 </html>

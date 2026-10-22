@@ -1,0 +1,119 @@
+.hero-quote-card {
+  width: min(100%, 455px);
+  margin-left: auto;
+  background: #fff;
+  border: 1px solid rgba(201, 168, 76, 0.55);
+  border-radius: 8px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  color: var(--primary);
+  padding: 26px;
+}
+
+.hero-quote-kicker {
+  color: var(--accent-hover);
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+  margin-bottom: 7px;
+  text-transform: uppercase;
+}
+
+.hero-quote-card h2 {
+  color: var(--primary);
+  font-size: 23px;
+  line-height: 1.2;
+  margin-bottom: 19px;
+}
+
+.hero-quote-field {
+  margin-bottom: 13px;
+}
+
+.hero-quote-field label {
+  color: var(--primary);
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.hero-quote-field select,
+.hero-quote-field input {
+  background: #fff;
+  border: 1px solid #cfd5dd;
+  border-radius: 5px;
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  min-height: 44px;
+  padding: 10px 12px;
+  width: 100%;
+}
+
+.hero-quote-field select:focus,
+.hero-quote-field input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.16);
+  outline: none;
+}
+
+.hero-quote-row {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1.15fr) minmax(105px, 0.85fr);
+}
+
+.hero-quote-submit {
+  background: var(--accent);
+  border: 0;
+  border-radius: 50px;
+  color: var(--primary);
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  min-height: 47px;
+  padding: 12px 20px;
+  transition: var(--transition);
+  width: 100%;
+}
+
+.hero-quote-submit:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 8px 24px rgba(201, 168, 76, 0.3);
+  transform: translateY(-1px);
+}
+
+.hero-quote-email {
+  color: var(--text-muted);
+  display: block;
+  font-size: 11px;
+  margin-top: 11px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.hero-quote-email:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 992px) {
+  .hero-visual.hero-inquiry-wrap {
+    order: 0;
+  }
+
+  .hero-quote-card {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-quote-card {
+    padding: 22px 18px;
+  }
+
+  .hero-quote-row {
+    grid-template-columns: 1fr;
+  }
+}
