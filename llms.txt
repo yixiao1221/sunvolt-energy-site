@@ -5,14 +5,13 @@
 ## Canonical facts
 
 - Brand: SunVolt Energy
-- Brand relationship: A brand of SJ DOORS
+- Public brand scope: Independent power-product brand with its own website, product scope and sales contact
 - Business role: B2B supplier and export project coordinator working with manufacturing partners
 - Location: Foshan, Guangdong, China
 - Product range: portable power stations, foldable solar panels, hybrid inverters, LiFePO4 battery systems and integrated solar storage
 - Published markets: Africa, Middle East and Asia, with project enquiries from Europe and the Americas
 - Energy-site WhatsApp: +86 130 2512 4521
 - Sales email: yixiao1221@outlook.com
-- Door-site contact is separate: +86 180 2587 2071
 - Typical portable-product MOQ: commonly 10 units; paid trials and project quantities can differ
 - Typical integrated-system lead time: commonly 25-35 days after deposit and design approval, subject to scope
 - Documentation: exact CE, FCC, RoHS, ISO 9001 and UN38.3 availability depends on model and order configuration
