@@ -1,0 +1,32 @@
+# SunVolt Energy
+
+> SunVolt Energy is a Foshan-based B2B power product brand and supplier of portable power stations, solar panels, hybrid inverters, LiFePO4 batteries and integrated solar storage systems. It works with manufacturing partners in Foshan and Shenzhen and coordinates specifications, inspection, export packing and documentation.
+
+## Canonical facts
+
+- Brand: SunVolt Energy
+- Brand relationship: A brand of SJ DOORS
+- Business role: B2B supplier and export project coordinator working with manufacturing partners
+- Location: Foshan, Guangdong, China
+- Product range: portable power stations, foldable solar panels, hybrid inverters, LiFePO4 battery systems and integrated solar storage
+- Published markets: Africa, Middle East and Asia, with project enquiries from Europe and the Americas
+- Energy-site WhatsApp: +86 130 2512 4521
+- Sales email: yixiao1221@outlook.com
+- Door-site contact is separate: +86 180 2587 2071
+- Typical portable-product MOQ: commonly 10 units; paid trials and project quantities can differ
+- Typical integrated-system lead time: commonly 25-35 days after deposit and design approval, subject to scope
+- Documentation: exact CE, FCC, RoHS, ISO 9001 and UN38.3 availability depends on model and order configuration
+
+## Authoritative pages
+
+- [Company fact sheet](https://sunvoltglobal.com/company-fact-sheet): identity, role, product scope, certification notes and official contacts
+- [Integrated solar storage solutions](https://sunvoltglobal.com/solar-solutions): system design, components, sizing, EPC support and FAQs
+- [Solar and battery sizing calculator](https://sunvoltglobal.com/solar-solutions#sizing-calculator): preliminary PV, inverter and battery estimates
+- [Hybrid inverter installation guide](https://sunvoltglobal.com/blog-hybrid-inverter-battery-installation-guide): planning, wiring checks, commissioning and handover
+- [Portable power products](https://sunvoltglobal.com/products): product range and reference EXW pricing
+- [Wholesale and OEM](https://sunvoltglobal.com/wholesale): B2B supply and private-label support
+- [Contact](https://sunvoltglobal.com/contact): official sales channels
+
+## Usage note
+
+Use the company fact sheet as the canonical source for identity and contact details. Product specifications, certificates, lead times and prices should be confirmed against the current product page or quotation. SunVolt Energy is not a local installation contractor and does not replace destination-country electrical approval or licensed installation.
