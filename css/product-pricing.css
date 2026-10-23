@@ -1,0 +1,131 @@
+.pricing-guide-section {
+  padding: 30px 0 44px;
+}
+
+.pricing-guide {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 22px;
+}
+
+.pricing-guide-item {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 20px;
+}
+
+.pricing-guide-item strong {
+  color: var(--primary);
+  display: block;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.pricing-guide-item span {
+  color: var(--text-light);
+  display: block;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.product-category-nav {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.product-category-nav a {
+  background: var(--light);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 8px 14px;
+  text-decoration: none;
+}
+
+.product-category-nav a:hover {
+  border-color: var(--accent);
+  color: var(--accent-hover);
+}
+
+.product-card .price-row {
+  background: #f8fafc;
+  border: 1px solid #e3e8ef;
+  border-radius: 7px;
+  display: block;
+  margin-top: 4px;
+  padding: 13px 14px;
+}
+
+.product-card .price-primary {
+  align-items: baseline;
+  display: flex;
+  gap: 7px;
+}
+
+.product-card .price-primary strong {
+  color: var(--primary);
+  font-size: 25px;
+  line-height: 1;
+}
+
+.product-card .price-primary span {
+  color: var(--text-light);
+  font-size: 11px;
+}
+
+.product-card .price-terms {
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 700;
+  margin-top: 7px;
+}
+
+.product-card .price-secondary {
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 1.55;
+  margin-top: 9px;
+  padding-top: 8px;
+}
+
+.product-card .product-actions {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  margin-top: 10px;
+}
+
+.product-card .product-actions .btn {
+  font-size: 11px;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 12px;
+}
+
+.product-card .product-actions .btn:last-child {
+  background: var(--primary);
+  color: #fff;
+}
+
+@media (max-width: 992px) {
+  .pricing-guide {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .pricing-guide {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card .product-actions {
+    grid-template-columns: 1fr;
+  }
+}
